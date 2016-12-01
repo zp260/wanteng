@@ -16,6 +16,12 @@
 		4A6C23DE1DEE5EE200F61CD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6C23DC1DEE5EE200F61CD0 /* LaunchScreen.storyboard */; };
 		4A6C23E91DEE5EE300F61CD0 /* wantengTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C23E81DEE5EE300F61CD0 /* wantengTests.m */; };
 		4A6C23F41DEE5EE300F61CD0 /* wantengUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C23F31DEE5EE300F61CD0 /* wantengUITests.m */; };
+		4A6C240B1DEECCD700F61CD0 /* LoadingImageview.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C240A1DEECCD700F61CD0 /* LoadingImageview.m */; };
+		4A6C240D1DEED75700F61CD0 /* loading1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A6C240C1DEED75700F61CD0 /* loading1.gif */; };
+		4A6C24171DEFC7D500F61CD0 /* UIFont+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C24111DEFC7D400F61CD0 /* UIFont+Extension.m */; };
+		4A6C24181DEFC7D500F61CD0 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C24131DEFC7D400F61CD0 /* UIImage+Extension.m */; };
+		4A6C24191DEFC7D500F61CD0 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C24151DEFC7D400F61CD0 /* UIView+Extension.m */; };
+		EBDFB6BA839D519CA7D2AC2A /* libPods-wanteng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD270246228C5811B4F763BC /* libPods-wanteng.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +60,18 @@
 		4A6C23EF1DEE5EE300F61CD0 /* wantengUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wantengUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6C23F31DEE5EE300F61CD0 /* wantengUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wantengUITests.m; sourceTree = "<group>"; };
 		4A6C23F51DEE5EE300F61CD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A6C24091DEECCD700F61CD0 /* LoadingImageview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingImageview.h; path = wanteng/LoadingImageview.h; sourceTree = "<group>"; };
+		4A6C240A1DEECCD700F61CD0 /* LoadingImageview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadingImageview.m; path = wanteng/LoadingImageview.m; sourceTree = "<group>"; };
+		4A6C240C1DEED75700F61CD0 /* loading1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading1.gif; path = wanteng/loading1.gif; sourceTree = "<group>"; };
+		4A6C24101DEFC7D400F61CD0 /* UIFont+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Extension.h"; path = "wanteng/Categories/UIFont+Extension.h"; sourceTree = "<group>"; };
+		4A6C24111DEFC7D400F61CD0 /* UIFont+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Extension.m"; path = "wanteng/Categories/UIFont+Extension.m"; sourceTree = "<group>"; };
+		4A6C24121DEFC7D400F61CD0 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Extension.h"; path = "wanteng/Categories/UIImage+Extension.h"; sourceTree = "<group>"; };
+		4A6C24131DEFC7D400F61CD0 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Extension.m"; path = "wanteng/Categories/UIImage+Extension.m"; sourceTree = "<group>"; };
+		4A6C24141DEFC7D400F61CD0 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Extension.h"; path = "wanteng/Categories/UIView+Extension.h"; sourceTree = "<group>"; };
+		4A6C24151DEFC7D400F61CD0 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Extension.m"; path = "wanteng/Categories/UIView+Extension.m"; sourceTree = "<group>"; };
+		656BA6E885A510F140C53C53 /* Pods-wanteng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wanteng.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wanteng/Pods-wanteng.debug.xcconfig"; sourceTree = "<group>"; };
+		CD270246228C5811B4F763BC /* libPods-wanteng.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wanteng.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBB20D649B4B822A7BCF6750 /* Pods-wanteng.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wanteng.release.xcconfig"; path = "Pods/Target Support Files/Pods-wanteng/Pods-wanteng.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBDFB6BA839D519CA7D2AC2A /* libPods-wanteng.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,13 +100,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4676822A71B43F85F223DD3A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD270246228C5811B4F763BC /* libPods-wanteng.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4A6C23BF1DEE5EE200F61CD0 = {
 			isa = PBXGroup;
 			children = (
+				4A6C240C1DEED75700F61CD0 /* loading1.gif */,
+				4A6C24081DEECCB700F61CD0 /* ext */,
 				4A6C23CA1DEE5EE200F61CD0 /* wanteng */,
 				4A6C23E71DEE5EE300F61CD0 /* wantengTests */,
 				4A6C23F21DEE5EE300F61CD0 /* wantengUITests */,
 				4A6C23C91DEE5EE200F61CD0 /* Products */,
+				6FD12729C03F07F9148F5E98 /* Pods */,
+				4676822A71B43F85F223DD3A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,6 +176,30 @@
 			path = wantengUITests;
 			sourceTree = "<group>";
 		};
+		4A6C24081DEECCB700F61CD0 /* ext */ = {
+			isa = PBXGroup;
+			children = (
+				4A6C24101DEFC7D400F61CD0 /* UIFont+Extension.h */,
+				4A6C24111DEFC7D400F61CD0 /* UIFont+Extension.m */,
+				4A6C24121DEFC7D400F61CD0 /* UIImage+Extension.h */,
+				4A6C24131DEFC7D400F61CD0 /* UIImage+Extension.m */,
+				4A6C24141DEFC7D400F61CD0 /* UIView+Extension.h */,
+				4A6C24151DEFC7D400F61CD0 /* UIView+Extension.m */,
+				4A6C24091DEECCD700F61CD0 /* LoadingImageview.h */,
+				4A6C240A1DEECCD700F61CD0 /* LoadingImageview.m */,
+			);
+			name = ext;
+			sourceTree = "<group>";
+		};
+		6FD12729C03F07F9148F5E98 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				656BA6E885A510F140C53C53 /* Pods-wanteng.debug.xcconfig */,
+				DBB20D649B4B822A7BCF6750 /* Pods-wanteng.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,9 +207,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A6C23F81DEE5EE300F61CD0 /* Build configuration list for PBXNativeTarget "wanteng" */;
 			buildPhases = (
+				8BE18B9C71E9E96DDFBD759F /* [CP] Check Pods Manifest.lock */,
 				4A6C23C41DEE5EE200F61CD0 /* Sources */,
 				4A6C23C51DEE5EE200F61CD0 /* Frameworks */,
 				4A6C23C61DEE5EE200F61CD0 /* Resources */,
+				FD1BFCD247E80B85BD22DD27 /* [CP] Embed Pods Frameworks */,
+				227692C25BD3664D0690B6B9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -255,6 +313,7 @@
 				4A6C23DE1DEE5EE200F61CD0 /* LaunchScreen.storyboard in Resources */,
 				4A6C23DB1DEE5EE200F61CD0 /* Assets.xcassets in Resources */,
 				4A6C23D91DEE5EE200F61CD0 /* Main.storyboard in Resources */,
+				4A6C240D1DEED75700F61CD0 /* loading1.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,15 +333,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		227692C25BD3664D0690B6B9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wanteng/Pods-wanteng-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BE18B9C71E9E96DDFBD759F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FD1BFCD247E80B85BD22DD27 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wanteng/Pods-wanteng-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4A6C23C41DEE5EE200F61CD0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6C24191DEFC7D500F61CD0 /* UIView+Extension.m in Sources */,
 				4A6C23D61DEE5EE200F61CD0 /* SecondViewController.m in Sources */,
 				4A6C23D01DEE5EE200F61CD0 /* AppDelegate.m in Sources */,
 				4A6C23D31DEE5EE200F61CD0 /* FirstViewController.m in Sources */,
+				4A6C240B1DEECCD700F61CD0 /* LoadingImageview.m in Sources */,
+				4A6C24171DEFC7D500F61CD0 /* UIFont+Extension.m in Sources */,
 				4A6C23CD1DEE5EE200F61CD0 /* main.m in Sources */,
+				4A6C24181DEFC7D500F61CD0 /* UIImage+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,9 +538,12 @@
 		};
 		4A6C23F91DEE5EE300F61CD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 656BA6E885A510F140C53C53 /* Pods-wanteng.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TEPB3LJJA6;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = wanteng/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -440,9 +554,12 @@
 		};
 		4A6C23FA1DEE5EE300F61CD0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBB20D649B4B822A7BCF6750 /* Pods-wanteng.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TEPB3LJJA6;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = wanteng/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -516,6 +633,7 @@
 				4A6C23FA1DEE5EE300F61CD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A6C23FB1DEE5EE300F61CD0 /* Build configuration list for PBXNativeTarget "wantengTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +642,7 @@
 				4A6C23FD1DEE5EE300F61CD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A6C23FE1DEE5EE300F61CD0 /* Build configuration list for PBXNativeTarget "wantengUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +651,7 @@
 				4A6C24001DEE5EE300F61CD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

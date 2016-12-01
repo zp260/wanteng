@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface FirstViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
+#import "LoadingImageview.h"
+@interface FirstViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scroolView;
+@property (strong, nonatomic) IBOutlet UIScrollView *foucsScroll;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *searchBt;
 
 //8个按钮
 @property (strong, nonatomic) IBOutlet UIButton *newsButton;
@@ -33,5 +35,10 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong,nonatomic) NSArray *recipes;
+@property (nonatomic) NSInteger ScroolCount;
+@property (strong, nonatomic) UIPageControl *pageControl;
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic) NSMutableArray *ScroolImageArray;
+@property (nonatomic,retain) UIImage *lodingIMG;
 @end
 
