@@ -7,8 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AFNetworking/AFNetworking.h"
+#import "NetWork.h"
+#import "SecondCollectionViewCell.h"
 
-@interface SecondViewController : UIViewController
+@interface SecondViewController : UIViewController <UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+{
+    NSArray *contentArray;
+    NSArray *classAryyay;
+    NSMutableArray *SectionArray;
+    NSArray *sectionTitleArray;
+    NSInteger cellCounts; //记录cell的总数
+}
+
+@property (weak, nonatomic) IBOutlet UIScrollView *rootScroolView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectView;
+@property (weak, nonatomic) IBOutlet UIImageView *topImage;
+
+
 
 
 @end

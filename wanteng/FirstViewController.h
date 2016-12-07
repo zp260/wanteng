@@ -8,31 +8,36 @@
 
 #import <UIKit/UIKit.h>
 #import "LoadingImageview.h"
+#import "NewsListCell.h"
+#import "AFNetworking/AFNetworking.h"
+#import "ContentViewController.h"
+#import "TransDate.h"
+
 @interface FirstViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UIGestureRecognizerDelegate>
 
-@property (strong, nonatomic) IBOutlet UIScrollView *scroolView;
-@property (strong, nonatomic) IBOutlet UIScrollView *foucsScroll;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *searchBt;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroolView;
+@property (weak, nonatomic) IBOutlet UIScrollView *foucsScroll;
 
 //8个按钮
-@property (strong, nonatomic) IBOutlet UIButton *newsButton;
-@property (strong, nonatomic) IBOutlet UIButton *infoButton;
-@property (strong, nonatomic) IBOutlet UIButton *yjManageButton;
-@property (strong, nonatomic) IBOutlet UIButton *govFilesButton;
-@property (strong, nonatomic) IBOutlet UIButton *sangongButton;
-@property (strong, nonatomic) IBOutlet UIButton *jingjiButton;
-@property (strong, nonatomic) IBOutlet UIButton *vipOrgButton;
-@property (strong, nonatomic) IBOutlet UIButton *cityManageButton;
-@property (strong, nonatomic) IBOutlet UIButton *unitManageButton;
-@property (strong, nonatomic) IBOutlet UIButton *messageButton;
+@property (weak, nonatomic) IBOutlet UIButton *newsButton;
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
+@property (weak, nonatomic) IBOutlet UIButton *yjManageButton;
+@property (weak, nonatomic) IBOutlet UIButton *govFilesButton;
+@property (weak, nonatomic) IBOutlet UIButton *sangongButton;
+@property (weak, nonatomic) IBOutlet UIButton *jingjiButton;
+@property (weak, nonatomic) IBOutlet UIButton *vipOrgButton;
+@property (weak, nonatomic) IBOutlet UIButton *cityManageButton;
+@property (weak, nonatomic) IBOutlet UIButton *unitManageButton;
+@property (weak, nonatomic) IBOutlet UIButton *messageButton;
 
 //4个按钮
-@property (strong, nonatomic) IBOutlet UIButton *historyButton;
-@property (strong, nonatomic) IBOutlet UIButton *adminAreaButton;
-@property (strong, nonatomic) IBOutlet UIButton *nationButton;
-@property (strong, nonatomic) IBOutlet UIButton *areaButton;
+@property (weak, nonatomic) IBOutlet UIButton *historyButton;
+@property (weak, nonatomic) IBOutlet UIButton *adminAreaButton;
+@property (weak, nonatomic) IBOutlet UIButton *nationButton;
+@property (weak, nonatomic) IBOutlet UIButton *areaButton;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroudIMG;
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong,nonatomic) NSArray *recipes;
 @property (nonatomic) NSInteger ScroolCount;

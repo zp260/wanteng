@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="coustmCell" id="gTV-IL-0wX" customClass="SecondCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face" translatesAutoresizingMaskIntoConstraints="NO" id="uP9-7X-jV4">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="1QR-x1-irg"/>
+                            <constraint firstAttribute="height" constant="60" id="xjt-MC-K39"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKc-w0-7mb">
+                        <rect key="frame" x="0.0" y="60" width="80" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="2PI-FY-ST8"/>
+                            <constraint firstAttribute="width" constant="80" id="zVI-Tk-yR1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="uP9-7X-jV4" secondAttribute="trailing" id="2gx-jL-8gx"/>
+                <constraint firstItem="lKc-w0-7mb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5wv-zx-IWL"/>
+                <constraint firstAttribute="trailing" secondItem="lKc-w0-7mb" secondAttribute="trailing" id="MZ1-wf-bVo"/>
+                <constraint firstItem="uP9-7X-jV4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ots-7k-kF2"/>
+                <constraint firstAttribute="bottom" secondItem="lKc-w0-7mb" secondAttribute="bottom" id="VMD-ru-59f"/>
+                <constraint firstItem="uP9-7X-jV4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="WFx-9q-qcu"/>
+                <constraint firstItem="lKc-w0-7mb" firstAttribute="top" secondItem="uP9-7X-jV4" secondAttribute="bottom" id="qhe-iT-xbL"/>
+            </constraints>
+            <connections>
+                <outlet property="image" destination="uP9-7X-jV4" id="fRO-NK-OrM"/>
+                <outlet property="title" destination="lKc-w0-7mb" id="e82-Ui-HOI"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="face" width="28" height="23"/>
+    </resources>
+</document>

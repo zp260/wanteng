@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContentViewController">
+            <connections>
+                <outlet property="contenTitle" destination="161-4k-6LF" id="P8g-wd-aJF"/>
+                <outlet property="date_source" destination="eng-OP-cPq" id="DMJ-dD-iWf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="TTK-er-f90" id="yaZ-zK-xth"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="161-4k-6LF">
+                    <rect key="frame" x="10" y="84" width="355" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTK-er-f90">
+                    <rect key="frame" x="10" y="130" width="355" height="493"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </webView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eng-OP-cPq">
+                    <rect key="frame" x="16" y="110" width="343" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="TTK-er-f90" firstAttribute="top" secondItem="eng-OP-cPq" secondAttribute="bottom" constant="20" id="3Qs-rI-sao"/>
+                <constraint firstItem="161-4k-6LF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="6hA-24-ZHU"/>
+                <constraint firstAttribute="trailing" secondItem="TTK-er-f90" secondAttribute="trailing" constant="10" id="Dk3-Iv-FuY"/>
+                <constraint firstAttribute="trailing" secondItem="eng-OP-cPq" secondAttribute="trailing" constant="16" id="Rpu-tL-ci5"/>
+                <constraint firstAttribute="bottom" secondItem="TTK-er-f90" secondAttribute="bottom" constant="44" id="UQG-uJ-UOX"/>
+                <constraint firstItem="eng-OP-cPq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="Wce-wz-Jgp"/>
+                <constraint firstItem="161-4k-6LF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aTe-Nq-aXZ"/>
+                <constraint firstItem="161-4k-6LF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="bUe-mE-gGU"/>
+                <constraint firstItem="eng-OP-cPq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="110" id="g1M-G0-JNH"/>
+                <constraint firstAttribute="trailing" secondItem="161-4k-6LF" secondAttribute="trailing" constant="10" id="hjW-Jx-Xqa"/>
+                <constraint firstItem="TTK-er-f90" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="xMr-S7-JwG"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+</document>

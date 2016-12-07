@@ -7,7 +7,6 @@
 //
 
 #import "FirstViewController.h"
-
 @interface FirstViewController ()
 
 @end
@@ -17,21 +16,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    _recipes = [NSArray arrayWithObjects:@"第一条数据",@"第二条数据",@"第三条数据",@"第四条数据",@"第五条数据",@"第一条数据",@"第二条数据",@"第三条数据",@"第四条数据",@"第五条数据", nil];
+    _recipes = [[NSArray alloc]init];
     
     NSLog(@"%f",kDeviceWidth);
-   
+    [_tableView registerNib:[UINib nibWithNibName:@"NewsListCell" bundle:nil] forCellReuseIdentifier:@"newsListCell"];
+    [self jsonGet];
     
 }
--(void)viewWillLayoutSubviews{
+-(void)jsonGet{
+    NSString* articleListUrl = @"http://www.dtcqzf.gov.cn/mobile/article/list/2/0/20";
     
+//    [articleListUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];  //如果传送的参数里面有中文的话，需要这样编码
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    manager.responseSerializer  = [AFHTTPResponseSerializer serializer];
+
+    [manager GET:articleListUrl parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        NSLog(@"进度:%lld", downloadProgress.totalUnitCount);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"请求成功:%@", responseObject);
+        _recipes  = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+       [_tableView reloadData];
+        NSLog(@"请求成功JSON:%@", _recipes);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"请求失败:%@", error.description);
+    }];
+    
+    [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:articleListUrl parameters:nil error:nil];
 }
 -(void)viewDidLayoutSubviews{
     [self initFrame];
     [self initScroolView];
     
-    [self initTableUI];
 }
 //轮播相关
 -(void)initScroolView{
@@ -61,10 +78,7 @@
     
 }
 
-#pragma mark-初始化table位置
--(void)initTableUI{
-    [_tableView setFrame:CGRectMake(0, 500, kDeviceWidth, 600)];
-}
+
 #pragma mark-初始frame
 -(void)initFrame{
      [_scroolView setFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceHeight)];
@@ -96,24 +110,34 @@
     _adminAreaButton.frame = CGRectMake(_historyButton.right+blank, _historyButton.top, f_btWidth, f_btHeight);
     _nationButton.frame = CGRectMake(_adminAreaButton.right+blank, _adminAreaButton.top, f_btWidth, f_btHeight);
     _areaButton.frame = CGRectMake(_nationButton.right+blank, _historyButton.top, f_btWidth, f_btHeight);
+    
+    //添加背景view
+    _backgroudIMG.frame  = CGRectMake(0, _historyButton.height-15, _historyButton.width, 15);
+    
+    UIImageView *backIMG2 = [[UIImageView alloc]init];
+    UIImageView *backIMG3 = [[UIImageView alloc]init];
+    UIImageView *backIMG4 = [[UIImageView alloc]init];
+    
+    backIMG2.frame = backIMG3.frame = backIMG4.frame = _backgroudIMG.frame;
+    backIMG2.alpha = backIMG3.alpha = backIMG4.alpha = _backgroudIMG.alpha;
+    backIMG2.backgroundColor = backIMG3.backgroundColor = backIMG4.backgroundColor = _backgroudIMG.backgroundColor;
+    
+    [_historyButton addSubview:_backgroudIMG];
+    [_adminAreaButton addSubview:backIMG2];
+    [_nationButton addSubview:backIMG3];
+    [_areaButton addSubview:backIMG4];
 
-//    float lastSpace = kDeviceWidth - (3*_infoButton.width+2*10);//    取剩余使用空间
-//    float lastBtSpace = lastSpace / 2;//    每个bt可以使用的空间
-//    float btBlank = (lastBtSpace-_infoButton.width)/2; //得到左右间距
-//    
-//    [_infoButton setLeft:_newsButton.right+btBlank]; //重新定位位置
-//    [_govFilesButton setLeft:_yjManageButton.right+btBlank];
-//    [_vipOrgButton setLeft:_infoButton.left];
-//    [_unitManageButton setLeft:_govFilesButton.left];
     
-    //四个大按钮的
-    float f_lastSpace = kDeviceWidth - (2*_historyButton.width+2*10);//    取剩余使用空间
-    float f_lastBtSpace = f_lastSpace - 2*_historyButton.width;//    每个bt可以使用的空间
-    float f_btBlank = f_lastBtSpace/3; //得到左右间距
+
     
-    [_adminAreaButton setLeft:_historyButton.right+f_btBlank];
-    [_nationButton setLeft:_adminAreaButton.right+f_btBlank];
+    [_tableView setFrame:CGRectMake(0, _historyButton.bottom+blank, kDeviceWidth, kDeviceHeight*2 - _historyButton.bottom+blank )];
+
 }
+#pragma mark -  按钮点击事件
+- (IBAction)historyClick:(id)sender {
+    NSLog(@"点击事件");
+}
+
 #pragma mark-tableview datasource delege
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -127,14 +151,34 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"listCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    NewsListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsListCell"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = (NewsListCell *)[tableView dequeueReusableCellWithIdentifier:@"newsListCell"];
     }
-    cell.textLabel.text = [_recipes objectAtIndex:indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:@"test.jpg"];
+    
+    if ( [_recipes count] > 0) {
+        NSArray *data = [_recipes objectAtIndex:indexPath.row];
+        cell.leftImage.image = [UIImage imageNamed:@"test.jpg"];
+        cell.title.text = [data valueForKey:@"title"];
+        cell.source.text = [data valueForKey:@"source"];
+        
+        NSLog(@"%@",[[data valueForKey:@"id"] class]) ;
+        NSString *time = [[data valueForKey:@"time"] stringValue];
+        
+        NSString *timeStr =  [TransDate TimeStamp:time];
+        cell.date.text = timeStr;
+    }
+    
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ( [_recipes count] > 0) {
+        NSArray *data = [_recipes objectAtIndex:indexPath.row];
+        ContentViewController *contentView = [[ContentViewController alloc]init];
+        contentView.id = [data valueForKey:@"id"];
+        [self.navigationController pushViewController:contentView animated:YES];
+    }
+   
 }
 
 //添加轮播图片
@@ -239,5 +283,4 @@
 }
 
 #pragma 图片点击事件代理
-
 @end

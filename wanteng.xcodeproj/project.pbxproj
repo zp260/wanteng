@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A23DFF71DF5420200D57BC0 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A23DFF51DF5420200D57BC0 /* ContentViewController.m */; };
+		4A23DFF81DF5420200D57BC0 /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A23DFF61DF5420200D57BC0 /* ContentViewController.xib */; };
+		4A23DFFB1DF54FA100D57BC0 /* TransDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A23DFFA1DF54FA100D57BC0 /* TransDate.m */; };
+		4A490E0D1DF6476800CF1E6A /* NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A490E0C1DF6476800CF1E6A /* NetWork.m */; };
+		4A490E111DF693F200CF1E6A /* SecondCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A490E0F1DF693F200CF1E6A /* SecondCollectionViewCell.m */; };
+		4A490E121DF693F200CF1E6A /* SecondCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A490E101DF693F200CF1E6A /* SecondCollectionViewCell.xib */; };
+		4A490E151DF7C1EA00CF1E6A /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A490E141DF7C1EA00CF1E6A /* ThirdViewController.m */; };
+		4A6BDE251DF1187200E69F11 /* NewsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6BDE231DF1187200E69F11 /* NewsListCell.m */; };
+		4A6BDE261DF1187200E69F11 /* NewsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6BDE241DF1187200E69F11 /* NewsListCell.xib */; };
 		4A6C23CD1DEE5EE200F61CD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C23CC1DEE5EE200F61CD0 /* main.m */; };
 		4A6C23D01DEE5EE200F61CD0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C23CF1DEE5EE200F61CD0 /* AppDelegate.m */; };
 		4A6C23D31DEE5EE200F61CD0 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C23D21DEE5EE200F61CD0 /* FirstViewController.m */; };
@@ -42,6 +51,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A23DFF41DF5420200D57BC0 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		4A23DFF51DF5420200D57BC0 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		4A23DFF61DF5420200D57BC0 /* ContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentViewController.xib; sourceTree = "<group>"; };
+		4A23DFF91DF54FA100D57BC0 /* TransDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransDate.h; path = wanteng/TransDate.h; sourceTree = "<group>"; };
+		4A23DFFA1DF54FA100D57BC0 /* TransDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransDate.m; path = wanteng/TransDate.m; sourceTree = "<group>"; };
+		4A490E0B1DF6476800CF1E6A /* NetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWork.h; sourceTree = "<group>"; };
+		4A490E0C1DF6476800CF1E6A /* NetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWork.m; sourceTree = "<group>"; };
+		4A490E0E1DF693F200CF1E6A /* SecondCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondCollectionViewCell.h; sourceTree = "<group>"; };
+		4A490E0F1DF693F200CF1E6A /* SecondCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondCollectionViewCell.m; sourceTree = "<group>"; };
+		4A490E101DF693F200CF1E6A /* SecondCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondCollectionViewCell.xib; sourceTree = "<group>"; };
+		4A490E131DF7C1EA00CF1E6A /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		4A490E141DF7C1EA00CF1E6A /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		4A6BDE221DF1187200E69F11 /* NewsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListCell.h; sourceTree = "<group>"; };
+		4A6BDE231DF1187200E69F11 /* NewsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListCell.m; sourceTree = "<group>"; };
+		4A6BDE241DF1187200E69F11 /* NewsListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsListCell.xib; sourceTree = "<group>"; };
 		4A6C23C81DEE5EE200F61CD0 /* wanteng.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wanteng.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6C23CC1DEE5EE200F61CD0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4A6C23CE1DEE5EE200F61CD0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -137,10 +161,21 @@
 			children = (
 				4A6C23CE1DEE5EE200F61CD0 /* AppDelegate.h */,
 				4A6C23CF1DEE5EE200F61CD0 /* AppDelegate.m */,
+				4A6BDE221DF1187200E69F11 /* NewsListCell.h */,
+				4A6BDE231DF1187200E69F11 /* NewsListCell.m */,
+				4A6BDE241DF1187200E69F11 /* NewsListCell.xib */,
 				4A6C23D11DEE5EE200F61CD0 /* FirstViewController.h */,
 				4A6C23D21DEE5EE200F61CD0 /* FirstViewController.m */,
 				4A6C23D41DEE5EE200F61CD0 /* SecondViewController.h */,
 				4A6C23D51DEE5EE200F61CD0 /* SecondViewController.m */,
+				4A490E0E1DF693F200CF1E6A /* SecondCollectionViewCell.h */,
+				4A490E0F1DF693F200CF1E6A /* SecondCollectionViewCell.m */,
+				4A490E101DF693F200CF1E6A /* SecondCollectionViewCell.xib */,
+				4A490E131DF7C1EA00CF1E6A /* ThirdViewController.h */,
+				4A490E141DF7C1EA00CF1E6A /* ThirdViewController.m */,
+				4A23DFF41DF5420200D57BC0 /* ContentViewController.h */,
+				4A23DFF51DF5420200D57BC0 /* ContentViewController.m */,
+				4A23DFF61DF5420200D57BC0 /* ContentViewController.xib */,
 				4A6C23D71DEE5EE200F61CD0 /* Main.storyboard */,
 				4A6C23DA1DEE5EE200F61CD0 /* Assets.xcassets */,
 				4A6C23DC1DEE5EE200F61CD0 /* LaunchScreen.storyboard */,
@@ -187,6 +222,10 @@
 				4A6C24151DEFC7D400F61CD0 /* UIView+Extension.m */,
 				4A6C24091DEECCD700F61CD0 /* LoadingImageview.h */,
 				4A6C240A1DEECCD700F61CD0 /* LoadingImageview.m */,
+				4A23DFF91DF54FA100D57BC0 /* TransDate.h */,
+				4A23DFFA1DF54FA100D57BC0 /* TransDate.m */,
+				4A490E0B1DF6476800CF1E6A /* NetWork.h */,
+				4A490E0C1DF6476800CF1E6A /* NetWork.m */,
 			);
 			name = ext;
 			sourceTree = "<group>";
@@ -311,6 +350,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A6C23DE1DEE5EE200F61CD0 /* LaunchScreen.storyboard in Resources */,
+				4A490E121DF693F200CF1E6A /* SecondCollectionViewCell.xib in Resources */,
+				4A6BDE261DF1187200E69F11 /* NewsListCell.xib in Resources */,
+				4A23DFF81DF5420200D57BC0 /* ContentViewController.xib in Resources */,
 				4A6C23DB1DEE5EE200F61CD0 /* Assets.xcassets in Resources */,
 				4A6C23D91DEE5EE200F61CD0 /* Main.storyboard in Resources */,
 				4A6C240D1DEED75700F61CD0 /* loading1.gif in Resources */,
@@ -388,11 +430,17 @@
 			files = (
 				4A6C24191DEFC7D500F61CD0 /* UIView+Extension.m in Sources */,
 				4A6C23D61DEE5EE200F61CD0 /* SecondViewController.m in Sources */,
+				4A6BDE251DF1187200E69F11 /* NewsListCell.m in Sources */,
+				4A490E111DF693F200CF1E6A /* SecondCollectionViewCell.m in Sources */,
 				4A6C23D01DEE5EE200F61CD0 /* AppDelegate.m in Sources */,
+				4A23DFFB1DF54FA100D57BC0 /* TransDate.m in Sources */,
+				4A490E151DF7C1EA00CF1E6A /* ThirdViewController.m in Sources */,
 				4A6C23D31DEE5EE200F61CD0 /* FirstViewController.m in Sources */,
 				4A6C240B1DEECCD700F61CD0 /* LoadingImageview.m in Sources */,
+				4A23DFF71DF5420200D57BC0 /* ContentViewController.m in Sources */,
 				4A6C24171DEFC7D500F61CD0 /* UIFont+Extension.m in Sources */,
 				4A6C23CD1DEE5EE200F61CD0 /* main.m in Sources */,
+				4A490E0D1DF6476800CF1E6A /* NetWork.m in Sources */,
 				4A6C24181DEFC7D500F61CD0 /* UIImage+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
