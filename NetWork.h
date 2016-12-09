@@ -21,4 +21,5 @@ typedef void(^Failure)(NSError *error);
 +(void)byPost:(NSString*)url dic:(NSDictionary*)dic Succed:(Success)succed failure:(Failure)failure; //post请求
 +(void)byGet:(NSString *)url dic:(NSDictionary *)dic withBlock:(void (^)(NSArray *needArray,NSError *error))block; //get并通知
 
+-(void)byGet:(NSString *)url dic:(NSDictionary *)dic withBlock:(void (^)(NSArray *needArray,NSError *error))block;
 @end

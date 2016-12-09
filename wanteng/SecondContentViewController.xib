@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SecondContentViewController">
+            <connections>
+                <outlet property="tabBar" destination="Obl-n8-mdY" id="dd7-No-y2g"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webview" destination="09l-qu-ccG" id="RnT-Vz-LBg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obl-n8-mdY">
+                    <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="aaq-9g-6QM"/>
+                    </constraints>
+                    <items>
+                        <tabBarItem title="领导设置" image="first" id="Ou9-9e-FLv"/>
+                        <tabBarItem tag="1" title="行政职能" image="face" id="qDa-Dh-b7l"/>
+                        <tabBarItem tag="2" title="内设机构" image="car" id="rSo-ZJ-qV1"/>
+                    </items>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="ovX-y4-cVc"/>
+                    </connections>
+                </tabBar>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09l-qu-ccG">
+                    <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </webView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Obl-n8-mdY" secondAttribute="trailing" id="24e-vP-A9h"/>
+                <constraint firstItem="09l-qu-ccG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="7j0-S6-RUu"/>
+                <constraint firstItem="Obl-n8-mdY" firstAttribute="top" secondItem="09l-qu-ccG" secondAttribute="bottom" id="BHF-WY-0cO"/>
+                <constraint firstAttribute="trailing" secondItem="09l-qu-ccG" secondAttribute="trailing" id="Knl-YH-buS"/>
+                <constraint firstItem="09l-qu-ccG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QFR-mz-6QY"/>
+                <constraint firstItem="Obl-n8-mdY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VAf-cq-OXr"/>
+                <constraint firstAttribute="bottom" secondItem="Obl-n8-mdY" secondAttribute="bottom" id="g2C-D2-EoW"/>
+            </constraints>
+            <point key="canvasLocation" x="479.5" y="-639.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="car" width="35" height="23"/>
+        <image name="face" width="28" height="23"/>
+        <image name="first" width="30" height="30"/>
+    </resources>
+</document>

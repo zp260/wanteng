@@ -50,6 +50,29 @@
     }];
 
 }
+-(void)byGet:(NSString *)url dic:(NSDictionary *)dic withBlock:(void (^)(NSArray *needArray,NSError *error))block{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    manager.responseSerializer  = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain", @"text/json", @"text/javascript",@"text/html", nil];
+    [manager GET:url parameters:dic progress:^(NSProgress * _Nonnull downloadProgress){
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSArray *json =  [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil]; //解析json数据
+        if (block) {
+            block(json,nil);
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        NSLog(@"请求失败:%@", error.description);
+        if (block) {
+            block([NSArray array],error);
+        }
+        
+    }];
+}
+
 
 +(void)Manager:(NSString*)url Method:(NSString*)Method parameterDic:(NSDictionary*)parameterDic requestSucced:(Success)Succed requestFailure:(Failure)Failured{
     

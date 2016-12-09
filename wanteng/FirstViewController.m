@@ -20,11 +20,15 @@
     
     NSLog(@"%f",kDeviceWidth);
     [_tableView registerNib:[UINib nibWithNibName:@"NewsListCell" bundle:nil] forCellReuseIdentifier:@"newsListCell"];
+    
+    //初始化loading动画图片
+    LoadingImageview *loading = [[LoadingImageview alloc]init];
+    _lodingIMG = [loading initloadingImg];
     [self jsonGet];
     
 }
 -(void)jsonGet{
-    NSString* articleListUrl = @"http://www.dtcqzf.gov.cn/mobile/article/list/2/0/20";
+    NSString* articleListUrl = @"http://www.dtcqzf.gov.cn/mobile/article/list/2/0/20?thumb=1";
     
 //    [articleListUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];  //如果传送的参数里面有中文的话，需要这样编码
     
@@ -130,7 +134,7 @@
     
 
     
-    [_tableView setFrame:CGRectMake(0, _historyButton.bottom+blank, kDeviceWidth, kDeviceHeight*2 - _historyButton.bottom+blank )];
+    [_tableView setFrame:CGRectMake(10, _historyButton.bottom+blank, kDeviceWidth-20, kDeviceHeight*2 - (_historyButton.bottom+blank) )];
 
 }
 #pragma mark -  按钮点击事件
@@ -158,7 +162,10 @@
     
     if ( [_recipes count] > 0) {
         NSArray *data = [_recipes objectAtIndex:indexPath.row];
-        cell.leftImage.image = [UIImage imageNamed:@"test.jpg"];
+    
+        NSString *imagUrl = [[NSString alloc] initWithFormat:@"%@%@",SiteUrl,[data valueForKey:@"thumb"]];
+        [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:imagUrl] placeholderImage:_lodingIMG];
+        
         cell.title.text = [data valueForKey:@"title"];
         cell.source.text = [data valueForKey:@"source"];
         
@@ -179,6 +186,10 @@
         [self.navigationController pushViewController:contentView animated:YES];
     }
    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
 }
 
 //添加轮播图片

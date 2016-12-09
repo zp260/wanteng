@@ -18,13 +18,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face" translatesAutoresizingMaskIntoConstraints="NO" id="uP9-7X-jV4">
-                        <rect key="frame" x="0.0" y="0.0" width="80" height="60"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="80" id="1QR-x1-irg"/>
-                            <constraint firstAttribute="height" constant="60" id="xjt-MC-K39"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKc-w0-7mb">
                         <rect key="frame" x="0.0" y="60" width="80" height="20"/>
                         <constraints>
@@ -35,16 +28,21 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face" translatesAutoresizingMaskIntoConstraints="NO" id="uP9-7X-jV4">
+                        <rect key="frame" x="15" y="0.0" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="OKa-jU-8RD"/>
+                            <constraint firstAttribute="height" constant="50" id="zSY-js-aaL"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="uP9-7X-jV4" secondAttribute="trailing" id="2gx-jL-8gx"/>
+                <constraint firstItem="uP9-7X-jV4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1Yl-J3-cgL"/>
                 <constraint firstItem="lKc-w0-7mb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5wv-zx-IWL"/>
                 <constraint firstAttribute="trailing" secondItem="lKc-w0-7mb" secondAttribute="trailing" id="MZ1-wf-bVo"/>
-                <constraint firstItem="uP9-7X-jV4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ots-7k-kF2"/>
+                <constraint firstItem="uP9-7X-jV4" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Rx1-Wl-Ull"/>
                 <constraint firstAttribute="bottom" secondItem="lKc-w0-7mb" secondAttribute="bottom" id="VMD-ru-59f"/>
-                <constraint firstItem="uP9-7X-jV4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="WFx-9q-qcu"/>
-                <constraint firstItem="lKc-w0-7mb" firstAttribute="top" secondItem="uP9-7X-jV4" secondAttribute="bottom" id="qhe-iT-xbL"/>
             </constraints>
             <connections>
                 <outlet property="image" destination="uP9-7X-jV4" id="fRO-NK-OrM"/>

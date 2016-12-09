@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *windText; //风力
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+
+
 @end

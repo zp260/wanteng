@@ -10,6 +10,8 @@
 #import "AFNetworking/AFNetworking.h"
 #import "NetWork.h"
 #import "SecondCollectionViewCell.h"
+#import "SecondContentViewController.h"
+#import "SecondCollectionReusableView.h"
 
 @interface SecondViewController : UIViewController <UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 {

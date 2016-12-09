@@ -8,7 +8,7 @@
 
 #import "SecondViewController.h"
 NSInteger const cellHight = 80;
-NSInteger const cellWidth = 100;
+NSInteger const cellWidth = 110;
 
 @interface SecondViewController ()
 
@@ -26,6 +26,9 @@ NSInteger const cellWidth = 100;
     sectionTitleArray = [[NSArray alloc]initWithObjects:@"工作部门",@"直属机构",@"街道办事处", nil];
     
     [_collectView registerNib:[UINib nibWithNibName:@"SecondCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"coustmCell"];
+    
+    UICollectionViewFlowLayout *collectionViewLayout = (UICollectionViewFlowLayout*)_collectView.collectionViewLayout;
+    collectionViewLayout.sectionInset = UIEdgeInsetsMake(20, 0, 0, 0);
      cellCounts = 0;
     [self jsonGet];
 }
@@ -34,7 +37,8 @@ NSInteger const cellWidth = 100;
 }
 -(void)jsonGet{
     for (int i=0; i<classAryyay.count; i++) {
-        [NetWork byGet:[classAryyay objectAtIndex:i] dic:nil withBlock:^(NSArray *needArray, NSError *error) {
+        NetWork *network = [[NetWork alloc]init];
+        [network byGet:[classAryyay objectAtIndex:i] dic:nil withBlock:^(NSArray *needArray, NSError *error) {
             if(!error){
                 [SectionArray addObject:needArray];
                 cellCounts += needArray.count;
@@ -66,8 +70,9 @@ NSInteger const cellWidth = 100;
         count = cellCounts/per_count+1;
     }
     
-    _collectView.frame = CGRectMake(15, _topImage.bottom+10, _rootScroolView.width-30, count*(cellHight+20));
+    _collectView.frame = CGRectMake(0, _topImage.bottom+10, _rootScroolView.width, count*(cellHight+20));
     _rootScroolView.contentSize =CGSizeMake(kDeviceWidth, _collectView.height + _topImage.height) ;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -109,4 +114,41 @@ NSInteger const cellWidth = 100;
     
     return CGSizeMake(cellWidth, cellHight);
 }
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger sec = indexPath.section;
+    NSInteger row = indexPath.row;
+    if (SectionArray.count>0) {
+        NSArray *contentDic =[SectionArray objectAtIndex:sec];
+        NSArray *contentArr = [contentDic objectAtIndex:row];
+        NSNumber* topid = [contentArr valueForKey:@"id"];
+        NSLog(@"topid=%ld",[topid integerValue]);
+        self.hidesBottomBarWhenPushed = YES;
+        SecondContentViewController *contentView = [[SecondContentViewController alloc]init];
+        contentView.id = [topid integerValue];
+        [self.navigationController pushViewController:contentView animated:YES];
+        self.hidesBottomBarWhenPushed = NO;
+    }
+
+}
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    CGSize size={kDeviceWidth,20};
+    return size;
+}
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    
+    UICollectionReusableView *reusableview = nil;
+    if (kind == UICollectionElementKindSectionHeader) {
+        SecondCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        if (SectionArray.count>0) {
+            NSInteger sec = indexPath.section;
+            headerView.backgroundImg.backgroundColor = [UIColor grayColor];
+            headerView.title.text = [sectionTitleArray objectAtIndex:sec];
+        }
+        
+        reusableview = headerView;
+    }
+    
+    return reusableview;
+}
+
 @end

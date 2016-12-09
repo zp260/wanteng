@@ -12,6 +12,8 @@
 #import "AFNetworking/AFNetworking.h"
 #import "ContentViewController.h"
 #import "TransDate.h"
+#import "SDwebImage.h"
+#import "LoadingImageview.h"
 
 @interface FirstViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UIGestureRecognizerDelegate>
 
