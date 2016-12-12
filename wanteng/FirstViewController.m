@@ -12,18 +12,18 @@
 @end
 
 @implementation FirstViewController
-
+@synthesize pageControl;
 static int pageCount = 20; //每页加载20个数据
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _pageControl = [[UIPageControl alloc]init];
-    _pageControl.currentPage = 0;
+    pageControl = [[UIPageControl alloc]init];
+    pageControl.numberOfPages = 4; //重要，初始化pageControl的时候要初始化它的numberOfPages.
+    pageControl.currentPage = 0;
     startPage = 0;
     siteID = 2;
-    
-    NSLog(@"%f",kDeviceWidth);
+
     [_tableView registerNib:[UINib nibWithNibName:@"NewsListCell" bundle:nil] forCellReuseIdentifier:@"newsListCell"];
     
     //初始化loading动画图片
@@ -36,6 +36,8 @@ static int pageCount = 20; //每页加载20个数据
     refresh.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
     [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     _tableView.refreshControl =refresh;
+    
+    [self addTimer];
     
 }
 #pragma 获取网络数据
@@ -61,6 +63,14 @@ static int pageCount = 20; //每页加载20个数据
         
     }
 }
+
+#pragma mark- 加载更多事件,上拉加载
+-(void)loadMore{
+    startPage++;
+    NSLog(@"startPage=%d",startPage);
+    [self jsonGet:siteID startpage:startPage pagecount:pageCount];
+}
+
 -(void)viewDidLayoutSubviews{
     
     [self initFrame];
@@ -96,7 +106,9 @@ static int pageCount = 20; //每页加载20个数据
     [_foucsScroll setContentSize:CGSizeMake(kDeviceWidth*_ScroolImageArray.count, 0)];
     _foucsScroll.tag = 111;
     
-    
+    //把pageControl添加到界面上,有bug
+//    pageControl.frame = CGRectMake(0, _foucsScroll.bottom+37, _foucsScroll.width, 37);
+//    [self.view addSubview:pageControl];
     
 }
 
@@ -150,7 +162,7 @@ static int pageCount = 20; //每页加载20个数据
     [_areaButton addSubview:backIMG4];
     
     _headerView.frame = CGRectMake(0, 0 , _tableView.width, _historyButton.bottom+10);//定义tableHeaderView
-    NSLog(@"_tableView.frame%@",NSStringFromCGRect(_tableView.frame));
+//    NSLog(@"_tableView.frame%@",NSStringFromCGRect(_tableView.frame));
     _tableView.tableHeaderView = _headerView;
     _loadMoreView = [[SGLoadMoreView alloc]initWithFrame:CGRectMake(0, 0, _tableView.width, 44)];
     _tableView.tableFooterView = _loadMoreView;
@@ -160,12 +172,6 @@ static int pageCount = 20; //每页加载20个数据
 #pragma mark -  按钮点击事件
 - (IBAction)historyClick:(id)sender {
     NSLog(@"点击事件");
-}
-#pragma mark- 加载更多事件
--(void)loadMore{
-    startPage++;
-    NSLog(@"startPage=%d",startPage);
-    [self jsonGet:siteID startpage:startPage pagecount:pageCount];
 }
 #pragma mark-tableview 代理
 
@@ -195,7 +201,6 @@ static int pageCount = 20; //每页加载20个数据
         cell.title.text = [data valueForKey:@"title"];
         cell.source.text = [data valueForKey:@"source"];
         
-        NSLog(@"%@",[[data valueForKey:@"id"] class]) ;
         NSString *time = [[data valueForKey:@"time"] stringValue];
         
         NSString *timeStr =  [TransDate TimeStamp:time];
@@ -278,7 +283,7 @@ static int pageCount = 20; //每页加载20个数据
 #pragma mark-SCroll and TIMER
 -(void)nextImage
 {
-    NSInteger i=_pageControl.currentPage;
+    NSInteger i=pageControl.currentPage;
     if (i==_ScroolImageArray.count-1)
     {
         i=-1;
@@ -288,24 +293,26 @@ static int pageCount = 20; //每页加载20个数据
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat currentOffsetY = scrollView.contentOffset.y;
-    /*self.refreshControl.isRefreshing == NO加这个条件是为了防止下面的情况发生：
-     每次进入UITableView，表格都会沉降一段距离，这个时候就会导致currentOffsetY + scrollView.frame.size.height   > scrollView.contentSize.height 被触发，从而触发loadMore方法，而不会触发refresh方法。
-     */
-    if ( currentOffsetY + scrollView.frame.size.height  > scrollView.contentSize.height &&  _tableView.refreshControl.isRefreshing == NO  && self.loadMoreView.isAnimating == NO && self.loadMoreView.tipsLabel.isHidden ){
-        [self.loadMoreView startAnimation];//开始旋转菊花
-        [self loadMore];
-    }
-    NSLog(@"%@ ---%f----%f",NSStringFromCGRect(scrollView.frame),currentOffsetY,scrollView.contentSize.height);
-    
     if (scrollView.tag == 111) {
         //    计算页码    页码 = (contentoffset.x + scrollView一半宽度)/scrollView宽度
-        CGFloat currentOffsetX = scrollView.contentOffset.x;
-        CGFloat page = (_foucsScroll.width*0.5+currentOffsetX)/_foucsScroll.width;
-        NSLog(@"当前页%ld",lround(page));
-        _pageControl.currentPage=lround(page);
-        NSLog(@"滚动中,%ld",(long)_pageControl.currentPage);
+        float currentOffsetX = scrollView.contentOffset.x;
+        NSInteger page = (_foucsScroll.width*0.5+currentOffsetX)/_foucsScroll.width;
+        [pageControl setCurrentPage:page];
+    }else
+    {
+        CGFloat currentOffsetY = scrollView.contentOffset.y;
+        /*self.refreshControl.isRefreshing == NO加这个条件是为了防止下面的情况发生：
+         每次进入UITableView，表格都会沉降一段距离，这个时候就会导致currentOffsetY + scrollView.frame.size.height   > scrollView.contentSize.height 被触发，从而触发loadMore方法，而不会触发refresh方法。
+         */
+        if ( currentOffsetY + scrollView.frame.size.height  > scrollView.contentSize.height &&  _tableView.refreshControl.isRefreshing == NO  && self.loadMoreView.isAnimating == NO && self.loadMoreView.tipsLabel.isHidden ){
+            [self.loadMoreView startAnimation];//开始旋转菊花
+            [self loadMore];
+        }
+//        NSLog(@"%@ ---%f----%f",NSStringFromCGRect(scrollView.frame),currentOffsetY,scrollView.contentSize.height);
     }
+    
+    
+    
    
 }
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

@@ -47,9 +47,9 @@
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (strong,nonnull)  SGLoadMoreView *loadMoreView;
 
-@property (strong,nonatomic) NSMutableArray *recipes;
+@property (strong,nonatomic) NSMutableArray * _Nonnull recipes;
 @property (nonatomic) NSInteger ScroolCount;
-@property (strong, nonatomic) UIPageControl *pageControl;
+@property (strong, nonatomic) UIPageControl * _Nonnull pageControl;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic) NSMutableArray *ScroolImageArray;
 @property (nonatomic,retain) UIImage *lodingIMG;
