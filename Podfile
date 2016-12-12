@@ -5,4 +5,5 @@ target 'wanteng' do
 pod 'AFNetworking','~>3.1.0'
 pod 'SDWebImage','~>3.7.3'
 pod 'MTDates','~>0.12.0'
+pod 'MBProgressHUD', '~> 1.0.0'
 end

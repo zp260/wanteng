@@ -13,10 +13,15 @@
 
 @implementation FirstViewController
 
+static int pageCount = 20; //每页加载20个数据
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _recipes = [[NSArray alloc]init];
+    _pageControl = [[UIPageControl alloc]init];
+    _pageControl.currentPage = 0;
+    startPage = 0;
+    siteID = 2;
     
     NSLog(@"%f",kDeviceWidth);
     [_tableView registerNib:[UINib nibWithNibName:@"NewsListCell" bundle:nil] forCellReuseIdentifier:@"newsListCell"];
@@ -24,38 +29,51 @@
     //初始化loading动画图片
     LoadingImageview *loading = [[LoadingImageview alloc]init];
     _lodingIMG = [loading initloadingImg];
-    [self jsonGet];
+    [self jsonGet:2 startpage:0 pagecount:20];
+    
+    //下拉刷新
+    UIRefreshControl *refresh = [[UIRefreshControl alloc]init];
+    refresh.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
+    [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    _tableView.refreshControl =refresh;
     
 }
--(void)jsonGet{
-    NSString* articleListUrl = @"http://www.dtcqzf.gov.cn/mobile/article/list/2/0/20?thumb=1";
-    
-//    [articleListUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];  //如果传送的参数里面有中文的话，需要这样编码
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    manager.responseSerializer  = [AFHTTPResponseSerializer serializer];
-
-    [manager GET:articleListUrl parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@"进度:%lld", downloadProgress.totalUnitCount);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"请求成功:%@", responseObject);
-        _recipes  = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-       [_tableView reloadData];
-        NSLog(@"请求成功JSON:%@", _recipes);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"请求失败:%@", error.description);
+#pragma 获取网络数据
+-(void)jsonGet:(int)siteid startpage:(int)startpage pagecount:(int)pagecount{
+    NSString* articleListUrl = [[NSString alloc]initWithFormat:@"%@%d/%d/%d%@",@"http://www.dtcqzf.gov.cn/mobile/article/list/",siteid,startpage,pagecount,@"?thumb=1" ];
+    NetWork *work = [[NetWork alloc]init];
+    [work byGet:articleListUrl dic:nil withBlock:^(NSArray *needArray, NSError *error) {
+        [self.recipes addObjectsFromArray:needArray] ;
+        [_tableView reloadData];
+        [_loadMoreView stopAnimation];//数据加载成功后停止旋转菊花
     }];
-    
-    [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:articleListUrl parameters:nil error:nil];
+}
+#pragma mark-下拉刷新
+-(void)refresh{
+    if (_tableView.refreshControl.isRefreshing) {
+        [_recipes removeAllObjects]; //清除旧数据，每次加载都是最新的数据
+        _tableView.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"加载中。。。"];
+        [self jsonGet:2 startpage:0 pagecount:20];
+        _tableView.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
+        [_tableView.refreshControl endRefreshing];
+        _loadMoreView.tipsLabel.hidden = YES;
+        startPage = 0;
+        
+    }
 }
 -(void)viewDidLayoutSubviews{
-    [self initFrame];
-    [self initScroolView];
     
+    [self initFrame];
+    [self initFoucs];
 }
-//轮播相关
--(void)initScroolView{
+-(NSMutableArray*)recipes{
+    if (!_recipes) {
+        _recipes = [NSMutableArray array];
+    }
+    return _recipes;
+}
+#pragma mark-初始化轮播
+-(void)initFoucs{
     
     //初始化loading动画图片
     LoadingImageview *loading = [[LoadingImageview alloc]init];
@@ -75,23 +93,23 @@
     [self AddScroolViews:2];
     [self AddScroolViews:3];
     
-   
-    [_scroolView setContentSize:CGSizeMake(0, kDeviceHeight*2)];
+    [_foucsScroll setContentSize:CGSizeMake(kDeviceWidth*_ScroolImageArray.count, 0)];
+    _foucsScroll.tag = 111;
     
-    [_foucsScroll setContentSize:CGSizeMake(_scroolView.width*_ScroolImageArray.count, 0)];
+    
     
 }
 
 
 #pragma mark-初始frame
 -(void)initFrame{
-     [_scroolView setFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceHeight)];
-    [_foucsScroll setFrame:CGRectMake(0, 0, _scroolView.width, _foucsScroll.height)];
+    [_foucsScroll setFrame:CGRectMake(0, 0, kDeviceWidth, 150)];
+    [_tableView setFrame:CGRectMake(10, 0, kDeviceWidth-20, kDeviceHeight)];
     
-    int btX = 10;
+    int btX = 0;
     float btY = _foucsScroll.bottom + 10 ;
     float blank = 10;
-    float btWidth = (_scroolView.width - 6*10) / 5;
+    float btWidth = (_tableView.width - 4*10) / 5;
     float btHeight =btWidth;
     
     
@@ -108,14 +126,14 @@
     _unitManageButton.frame = CGRectMake(_cityManageButton.right+blank, _jingjiButton.top, btWidth, btHeight);
     _messageButton.frame = CGRectMake(_unitManageButton.right+blank, _jingjiButton.top, btWidth, btHeight);
     
-    float f_btWidth = (_scroolView.width - 5*10) / 4;
+    float f_btWidth = (_tableView.width - 3*10) / 4;
     float f_btHeight =f_btWidth*0.75;
     _historyButton.frame = CGRectMake(btX, _messageButton.bottom+10, f_btWidth, f_btHeight);
     _adminAreaButton.frame = CGRectMake(_historyButton.right+blank, _historyButton.top, f_btWidth, f_btHeight);
     _nationButton.frame = CGRectMake(_adminAreaButton.right+blank, _adminAreaButton.top, f_btWidth, f_btHeight);
     _areaButton.frame = CGRectMake(_nationButton.right+blank, _historyButton.top, f_btWidth, f_btHeight);
     
-    //添加背景view
+    //添加按钮的背景view
     _backgroudIMG.frame  = CGRectMake(0, _historyButton.height-15, _historyButton.width, 15);
     
     UIImageView *backIMG2 = [[UIImageView alloc]init];
@@ -130,19 +148,27 @@
     [_adminAreaButton addSubview:backIMG2];
     [_nationButton addSubview:backIMG3];
     [_areaButton addSubview:backIMG4];
-
     
-
-    
-    [_tableView setFrame:CGRectMake(10, _historyButton.bottom+blank, kDeviceWidth-20, kDeviceHeight*2 - (_historyButton.bottom+blank) )];
+    _headerView.frame = CGRectMake(0, 0 , _tableView.width, _historyButton.bottom+10);//定义tableHeaderView
+    NSLog(@"_tableView.frame%@",NSStringFromCGRect(_tableView.frame));
+    _tableView.tableHeaderView = _headerView;
+    _loadMoreView = [[SGLoadMoreView alloc]initWithFrame:CGRectMake(0, 0, _tableView.width, 44)];
+    _tableView.tableFooterView = _loadMoreView;
 
 }
+
 #pragma mark -  按钮点击事件
 - (IBAction)historyClick:(id)sender {
     NSLog(@"点击事件");
 }
+#pragma mark- 加载更多事件
+-(void)loadMore{
+    startPage++;
+    NSLog(@"startPage=%d",startPage);
+    [self jsonGet:siteID startpage:startPage pagecount:pageCount];
+}
+#pragma mark-tableview 代理
 
-#pragma mark-tableview datasource delege
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -252,7 +278,7 @@
 #pragma mark-SCroll and TIMER
 -(void)nextImage
 {
-    NSInteger i=self.pageControl.currentPage;
+    NSInteger i=_pageControl.currentPage;
     if (i==_ScroolImageArray.count-1)
     {
         i=-1;
@@ -262,11 +288,25 @@
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    CGFloat currentOffsetY = scrollView.contentOffset.y;
+    /*self.refreshControl.isRefreshing == NO加这个条件是为了防止下面的情况发生：
+     每次进入UITableView，表格都会沉降一段距离，这个时候就会导致currentOffsetY + scrollView.frame.size.height   > scrollView.contentSize.height 被触发，从而触发loadMore方法，而不会触发refresh方法。
+     */
+    if ( currentOffsetY + scrollView.frame.size.height  > scrollView.contentSize.height &&  _tableView.refreshControl.isRefreshing == NO  && self.loadMoreView.isAnimating == NO && self.loadMoreView.tipsLabel.isHidden ){
+        [self.loadMoreView startAnimation];//开始旋转菊花
+        [self loadMore];
+    }
+    NSLog(@"%@ ---%f----%f",NSStringFromCGRect(scrollView.frame),currentOffsetY,scrollView.contentSize.height);
     
-    //    计算页码
-    //    页码 = (contentoffset.x + scrollView一半宽度)/scrollView宽度
-    self.pageControl.currentPage=(_foucsScroll.width*0.5+_foucsScroll.contentOffset.x)/_foucsScroll.width;
-    NSLog(@"滚动中,%d",self.pageControl.currentPage);
+    if (scrollView.tag == 111) {
+        //    计算页码    页码 = (contentoffset.x + scrollView一半宽度)/scrollView宽度
+        CGFloat currentOffsetX = scrollView.contentOffset.x;
+        CGFloat page = (_foucsScroll.width*0.5+currentOffsetX)/_foucsScroll.width;
+        NSLog(@"当前页%ld",lround(page));
+        _pageControl.currentPage=lround(page);
+        NSLog(@"滚动中,%ld",(long)_pageControl.currentPage);
+    }
+   
 }
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {

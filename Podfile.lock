@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - MBProgressHUD (1.0.0)
   - MTDates (0.12.0)
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
@@ -21,14 +22,16 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - MBProgressHUD (~> 1.0.0)
   - MTDates (~> 0.12.0)
   - SDWebImage (~> 3.7.3)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MTDates: 6a67ac516501e0806bc1498f6ab7c2030ed1ab92
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
 
-PODFILE CHECKSUM: 04374d44d3220859ac556a95ac58f44692af15b6
+PODFILE CHECKSUM: dc7108a82ac912287b5c5cca9464b269e74ac5d4
 
 COCOAPODS: 1.2.0.beta.1

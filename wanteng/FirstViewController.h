@@ -14,10 +14,14 @@
 #import "TransDate.h"
 #import "SDwebImage.h"
 #import "LoadingImageview.h"
+#import "NetWork.h"
+#import "SGLoadMoreView.h"
 
-@interface FirstViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UIGestureRecognizerDelegate>
+@interface FirstViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UIGestureRecognizerDelegate>{
+    int startPage; //开始的页面
+    int siteID;    //网站的id
+}
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scroolView;
 @property (weak, nonatomic) IBOutlet UIScrollView *foucsScroll;
 
 //8个按钮
@@ -40,8 +44,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backgroudIMG;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (strong,nonnull)  SGLoadMoreView *loadMoreView;
 
-@property (strong,nonatomic) NSArray *recipes;
+@property (strong,nonatomic) NSMutableArray *recipes;
 @property (nonatomic) NSInteger ScroolCount;
 @property (strong, nonatomic) UIPageControl *pageControl;
 @property (nonatomic, strong) NSTimer *timer;

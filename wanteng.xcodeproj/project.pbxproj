@@ -33,6 +33,8 @@
 		4A6C24181DEFC7D500F61CD0 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C24131DEFC7D400F61CD0 /* UIImage+Extension.m */; };
 		4A6C24191DEFC7D500F61CD0 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C24151DEFC7D400F61CD0 /* UIView+Extension.m */; };
 		4A7BE6801DFA38C700FD826C /* SecondCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7BE67F1DFA38C700FD826C /* SecondCollectionReusableView.m */; };
+		4AE78DB11DFAAE21000D8738 /* FourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE78DB01DFAAE21000D8738 /* FourViewController.m */; };
+		4AE78DB41DFE4F4A000D8738 /* SGLoadMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE78DB31DFE4F4A000D8738 /* SGLoadMoreView.m */; };
 		EBDFB6BA839D519CA7D2AC2A /* libPods-wanteng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD270246228C5811B4F763BC /* libPods-wanteng.a */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +104,10 @@
 		4A6C24151DEFC7D400F61CD0 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Extension.m"; path = "wanteng/Categories/UIView+Extension.m"; sourceTree = "<group>"; };
 		4A7BE67E1DFA38C700FD826C /* SecondCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondCollectionReusableView.h; sourceTree = "<group>"; };
 		4A7BE67F1DFA38C700FD826C /* SecondCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondCollectionReusableView.m; sourceTree = "<group>"; };
+		4AE78DAF1DFAAE21000D8738 /* FourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourViewController.h; sourceTree = "<group>"; };
+		4AE78DB01DFAAE21000D8738 /* FourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourViewController.m; sourceTree = "<group>"; };
+		4AE78DB21DFE4F4A000D8738 /* SGLoadMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SGLoadMoreView.h; path = wanteng/SGLoadMoreView.h; sourceTree = "<group>"; };
+		4AE78DB31DFE4F4A000D8738 /* SGLoadMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SGLoadMoreView.m; path = wanteng/SGLoadMoreView.m; sourceTree = "<group>"; };
 		656BA6E885A510F140C53C53 /* Pods-wanteng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wanteng.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wanteng/Pods-wanteng.debug.xcconfig"; sourceTree = "<group>"; };
 		CD270246228C5811B4F763BC /* libPods-wanteng.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wanteng.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB20D649B4B822A7BCF6750 /* Pods-wanteng.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wanteng.release.xcconfig"; path = "Pods/Target Support Files/Pods-wanteng/Pods-wanteng.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,11 +187,13 @@
 				4A23DFF61DF5420200D57BC0 /* ContentViewController.xib */,
 				4A490E131DF7C1EA00CF1E6A /* ThirdViewController.h */,
 				4A490E141DF7C1EA00CF1E6A /* ThirdViewController.m */,
-				4A6C23D71DEE5EE200F61CD0 /* Main.storyboard */,
 				4A6C23DA1DEE5EE200F61CD0 /* Assets.xcassets */,
 				4A6C23DC1DEE5EE200F61CD0 /* LaunchScreen.storyboard */,
 				4A6C23DF1DEE5EE200F61CD0 /* Info.plist */,
 				4A6C23CB1DEE5EE200F61CD0 /* Supporting Files */,
+				4AE78DAF1DFAAE21000D8738 /* FourViewController.h */,
+				4AE78DB01DFAAE21000D8738 /* FourViewController.m */,
+				4A6C23D71DEE5EE200F61CD0 /* Main.storyboard */,
 			);
 			path = wanteng;
 			sourceTree = "<group>";
@@ -220,6 +228,8 @@
 		4A6C24081DEECCB700F61CD0 /* ext */ = {
 			isa = PBXGroup;
 			children = (
+				4AE78DB21DFE4F4A000D8738 /* SGLoadMoreView.h */,
+				4AE78DB31DFE4F4A000D8738 /* SGLoadMoreView.m */,
 				4A6C24101DEFC7D400F61CD0 /* UIFont+Extension.h */,
 				4A6C24111DEFC7D400F61CD0 /* UIFont+Extension.m */,
 				4A6C24121DEFC7D400F61CD0 /* UIImage+Extension.h */,
@@ -463,7 +473,9 @@
 				4A6C23D31DEE5EE200F61CD0 /* FirstViewController.m in Sources */,
 				4A6C240B1DEECCD700F61CD0 /* LoadingImageview.m in Sources */,
 				4A23DFF71DF5420200D57BC0 /* ContentViewController.m in Sources */,
+				4AE78DB11DFAAE21000D8738 /* FourViewController.m in Sources */,
 				4A6C24171DEFC7D500F61CD0 /* UIFont+Extension.m in Sources */,
+				4AE78DB41DFE4F4A000D8738 /* SGLoadMoreView.m in Sources */,
 				4A6C23CD1DEE5EE200F61CD0 /* main.m in Sources */,
 				4A490E0D1DF6476800CF1E6A /* NetWork.m in Sources */,
 				4A6C24181DEFC7D500F61CD0 /* UIImage+Extension.m in Sources */,
