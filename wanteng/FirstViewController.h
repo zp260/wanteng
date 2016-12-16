@@ -20,8 +20,8 @@
 @interface FirstViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UIGestureRecognizerDelegate>{
     int startPage; //开始的页面
     int siteID;    //网站的id
+    NSMutableDictionary * parameter; //相关参数
 }
-
 @property (weak, nonatomic) IBOutlet UIScrollView *foucsScroll;
 
 //8个按钮
@@ -43,6 +43,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *areaButton;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroudIMG;
 
+@property (strong,nonatomic) UITableViewController *tableController;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (strong,nonnull)  SGLoadMoreView *loadMoreView;
@@ -50,8 +51,8 @@
 @property (strong,nonatomic) NSMutableArray * _Nonnull recipes;
 @property (nonatomic) NSInteger ScroolCount;
 @property (strong, nonatomic) UIPageControl * _Nonnull pageControl;
-@property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic) NSMutableArray *ScroolImageArray;
-@property (nonatomic,retain) UIImage *lodingIMG;
+@property (nonatomic, strong) NSTimer * _Nonnull timer;
+@property (nonatomic) NSMutableArray * _Nonnull ScroolImageArray;
+@property (nonatomic,retain) UIImage * _Nonnull lodingIMG;
 @end
 

@@ -16,8 +16,8 @@
 @interface SecondViewController : UIViewController <UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 {
     NSArray *contentArray;
-    NSArray *classAryyay;
-    NSMutableArray *SectionArray;
+    NSArray *classArray;
+    NSMutableDictionary *SectionDic;
     NSArray *sectionTitleArray;
     NSInteger cellCounts; //记录cell的总数
 }

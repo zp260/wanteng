@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M75-Sp-cwE">
-                        <rect key="frame" x="0.0" y="0.0" width="70" height="43.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="70" height="38.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="MEi-an-E9b"/>
                         </constraints>
@@ -64,7 +64,7 @@
                     <constraint firstItem="M75-Sp-cwE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jhP-Pe-lys"/>
                     <constraint firstAttribute="bottom" secondItem="kKc-b6-fzx" secondAttribute="bottom" constant="5" id="vju-cf-E7b"/>
                     <constraint firstItem="M75-Sp-cwE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="w09-Ie-5BD"/>
-                    <constraint firstAttribute="bottom" secondItem="M75-Sp-cwE" secondAttribute="bottom" id="zF5-CL-Fiw"/>
+                    <constraint firstAttribute="bottom" secondItem="M75-Sp-cwE" secondAttribute="bottom" constant="5" id="zF5-CL-Fiw"/>
                     <constraint firstItem="1q3-mA-GHH" firstAttribute="leading" secondItem="M75-Sp-cwE" secondAttribute="trailing" constant="10" id="zsD-cm-ndM"/>
                 </constraints>
             </tableViewCellContentView>

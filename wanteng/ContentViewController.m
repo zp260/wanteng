@@ -46,7 +46,13 @@
         NSDictionary *dic = [contentArray objectAtIndex:0];
         _contenTitle.text = [dic objectForKey:@"title"];
         _date_source.text = [NSString stringWithFormat:@"%@    %@",[dic objectForKey:@"source"],[TransDate TimeStamp:[[dic objectForKey:@"createTime"] stringValue]]];
-        [_webView loadHTMLString:[dic objectForKey:@"content"] baseURL:nil];
+        
+        NSString *html = [dic objectForKey:@"content"];
+        html = [ImgSrcFix fixedImageSrcHtml:html];
+        [_webView loadHTMLString:html baseURL:nil];
+        
+        self.title = [dic objectForKey:@"title"];
+        
         [self changeImgSrc];
     }
     
@@ -56,9 +62,12 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)changeImgSrc{
+    
     [_webView stringByEvaluatingJavaScriptFromString:@"var script = document.createElement('script');"
+     
     "script.type = 'text/javascript';"
-    "script.text = \"function changeImgSrc() { "
+     
+    "script.text = \"function changeImgSrc(){"
     
     "var oldSrc;"
 
@@ -66,18 +75,28 @@
     
     "myimg = document.images[i];"
     
-    "oldSrc = myimg.src;"
+    "oldSrc = myimg.src.replace(\"file://\",\"\");"
     
-    "myimg.src = \"http://www.dtcqzf.gov.cn\"+oldSrc ;"
+    "myimg.src = \"http://www.dtcqzf.gov.cn\"+oldSrc;"
     
     "}"
     
-    "}\";"
-    
-     "document.getElementsByTagName('head')[0].appendChild(script);"];
+    "}\";"];
     
     [_webView stringByEvaluatingJavaScriptFromString:@"changeImgSrc();"];
     
+    [_webView reload];
+ 
+    
+}
+- (IBAction)swipeRight:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    if(_swipRight == gestureRecognizer){
+        return YES;
+    }
+    return NO;
 }
 /*
 #pragma mark - Navigation

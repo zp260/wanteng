@@ -21,8 +21,8 @@ NSInteger const cellWidth = 110;
     // Do any additional setup after loading the view, typically from a nib.
     
     //初始化数据接收数组
-    SectionArray  = [[NSMutableArray alloc]init];
-    classAryyay = [[NSArray alloc]initWithObjects:@"http://www.dtcqzf.gov.cn/mobile/type/273",@"http://www.dtcqzf.gov.cn/mobile/type/274",@"http://www.dtcqzf.gov.cn/mobile/type/275",nil];
+    SectionDic  = [[NSMutableDictionary alloc]init];
+    classArray = [[NSArray alloc]initWithObjects:@"http://www.dtcqzf.gov.cn/mobile/type/273",@"http://www.dtcqzf.gov.cn/mobile/type/274",@"http://www.dtcqzf.gov.cn/mobile/type/275",nil];
     sectionTitleArray = [[NSArray alloc]initWithObjects:@"工作部门",@"直属机构",@"街道办事处", nil];
     
     [_collectView registerNib:[UINib nibWithNibName:@"SecondCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"coustmCell"];
@@ -36,13 +36,15 @@ NSInteger const cellWidth = 110;
     [self initFrame];
 }
 -(void)jsonGet{
-    for (int i=0; i<classAryyay.count; i++) {
+    for (int i=0; i<classArray.count; i++) {
         NetWork *network = [[NetWork alloc]init];
-        [network byGet:[classAryyay objectAtIndex:i] dic:nil withBlock:^(NSArray *needArray, NSError *error) {
+        [network byGet:[classArray objectAtIndex:i] dic:nil withBlock:^(NSArray *needArray, NSError *error) {
             if(!error){
-                [SectionArray addObject:needArray];
-                cellCounts += needArray.count;
-                if (SectionArray.count==classAryyay.count) {
+                [SectionDic setObject:needArray forKey:[classArray objectAtIndex:i]];
+                
+                cellCounts += needArray.count;//统计所有得到的cell
+                //加载完所有的section数据后 再刷新
+                if (SectionDic.count==classArray.count) {
                     [_collectView reloadData];
                     [self freshCollectView];
                 }
@@ -57,6 +59,10 @@ NSInteger const cellWidth = 110;
     _topImage.frame = CGRectMake(0, 0, _rootScroolView.width, 150);
 //    _collectView.frame = CGRectMake(15, _topImage.bottom+10, _rootScroolView.width-30, kDeviceHeight*3-(_topImage.bottom+10));
 }
+
+/**
+ 根据得到的cell数量 动态设置collectview的frame
+ */
 -(void)freshCollectView{
     NSInteger count = 0; //CollectView总行数
     NSInteger per_count =floor(_collectView.width / cellWidth); //每行的cell个数
@@ -84,8 +90,8 @@ NSInteger const cellWidth = 110;
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     
-    if (SectionArray.count>0) {
-        return [[SectionArray objectAtIndex:section] count];
+    if (SectionDic.count>0) {
+        return  [[SectionDic objectForKey:[classArray objectAtIndex:section]]count];
     }
     else {
         return 0;
@@ -93,15 +99,15 @@ NSInteger const cellWidth = 110;
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return  classAryyay.count;
+    return  classArray.count;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     SecondCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"coustmCell" forIndexPath:indexPath];
     NSInteger sec = indexPath.section;
     NSInteger row = indexPath.row;
-    if (SectionArray.count>0) {
-        NSArray *contentDic =[SectionArray objectAtIndex:sec];
+    if (SectionDic.count>0) {
+        NSArray *contentDic =[SectionDic objectForKey:[classArray objectAtIndex:sec]];
         NSArray *contentArr = [contentDic objectAtIndex:row];
         NSString *title = [contentArr valueForKey:@"name"];
         cell.title.text = title;
@@ -117,8 +123,8 @@ NSInteger const cellWidth = 110;
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger sec = indexPath.section;
     NSInteger row = indexPath.row;
-    if (SectionArray.count>0) {
-        NSArray *contentDic =[SectionArray objectAtIndex:sec];
+    if (SectionDic.count>0) {
+        NSArray *contentDic =[SectionDic objectForKey:[classArray objectAtIndex:sec]];
         NSArray *contentArr = [contentDic objectAtIndex:row];
         NSNumber* topid = [contentArr valueForKey:@"id"];
         NSLog(@"topid=%ld",[topid integerValue]);
@@ -139,7 +145,7 @@ NSInteger const cellWidth = 110;
     UICollectionReusableView *reusableview = nil;
     if (kind == UICollectionElementKindSectionHeader) {
         SecondCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-        if (SectionArray.count>0) {
+        if (SectionDic.count>0) {
             NSInteger sec = indexPath.section;
             headerView.backgroundImg.backgroundColor = [UIColor grayColor];
             headerView.title.text = [sectionTitleArray objectAtIndex:sec];

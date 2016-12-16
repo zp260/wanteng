@@ -10,6 +10,7 @@
 		4A23DFF71DF5420200D57BC0 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A23DFF51DF5420200D57BC0 /* ContentViewController.m */; };
 		4A23DFF81DF5420200D57BC0 /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A23DFF61DF5420200D57BC0 /* ContentViewController.xib */; };
 		4A23DFFB1DF54FA100D57BC0 /* TransDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A23DFFA1DF54FA100D57BC0 /* TransDate.m */; };
+		4A3553771E02227F0083C4F2 /* ImgSrcFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3553761E02227F0083C4F2 /* ImgSrcFix.m */; };
 		4A490E0D1DF6476800CF1E6A /* NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A490E0C1DF6476800CF1E6A /* NetWork.m */; };
 		4A490E111DF693F200CF1E6A /* SecondCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A490E0F1DF693F200CF1E6A /* SecondCollectionViewCell.m */; };
 		4A490E121DF693F200CF1E6A /* SecondCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A490E101DF693F200CF1E6A /* SecondCollectionViewCell.xib */; };
@@ -61,6 +62,8 @@
 		4A23DFF61DF5420200D57BC0 /* ContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentViewController.xib; sourceTree = "<group>"; };
 		4A23DFF91DF54FA100D57BC0 /* TransDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransDate.h; path = wanteng/TransDate.h; sourceTree = "<group>"; };
 		4A23DFFA1DF54FA100D57BC0 /* TransDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransDate.m; path = wanteng/TransDate.m; sourceTree = "<group>"; };
+		4A3553751E02227F0083C4F2 /* ImgSrcFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgSrcFix.h; sourceTree = "<group>"; };
+		4A3553761E02227F0083C4F2 /* ImgSrcFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgSrcFix.m; sourceTree = "<group>"; };
 		4A490E0B1DF6476800CF1E6A /* NetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWork.h; sourceTree = "<group>"; };
 		4A490E0C1DF6476800CF1E6A /* NetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWork.m; sourceTree = "<group>"; };
 		4A490E0E1DF693F200CF1E6A /* SecondCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondCollectionViewCell.h; sourceTree = "<group>"; };
@@ -147,6 +150,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4A4AB3B31DFFE21800743577 /* first */ = {
+			isa = PBXGroup;
+			children = (
+				4A6BDE221DF1187200E69F11 /* NewsListCell.h */,
+				4A6BDE231DF1187200E69F11 /* NewsListCell.m */,
+				4A6BDE241DF1187200E69F11 /* NewsListCell.xib */,
+				4A6C23D11DEE5EE200F61CD0 /* FirstViewController.h */,
+				4A6C23D21DEE5EE200F61CD0 /* FirstViewController.m */,
+				4A23DFF41DF5420200D57BC0 /* ContentViewController.h */,
+				4A23DFF51DF5420200D57BC0 /* ContentViewController.m */,
+				4A23DFF61DF5420200D57BC0 /* ContentViewController.xib */,
+			);
+			name = first;
+			sourceTree = "<group>";
+		};
 		4A6C23BF1DEE5EE200F61CD0 = {
 			isa = PBXGroup;
 			children = (
@@ -174,17 +192,10 @@
 		4A6C23CA1DEE5EE200F61CD0 /* wanteng */ = {
 			isa = PBXGroup;
 			children = (
+				4A4AB3B31DFFE21800743577 /* first */,
 				4A7BE67D1DF90EF600FD826C /* second */,
 				4A6C23CE1DEE5EE200F61CD0 /* AppDelegate.h */,
 				4A6C23CF1DEE5EE200F61CD0 /* AppDelegate.m */,
-				4A6BDE221DF1187200E69F11 /* NewsListCell.h */,
-				4A6BDE231DF1187200E69F11 /* NewsListCell.m */,
-				4A6BDE241DF1187200E69F11 /* NewsListCell.xib */,
-				4A6C23D11DEE5EE200F61CD0 /* FirstViewController.h */,
-				4A6C23D21DEE5EE200F61CD0 /* FirstViewController.m */,
-				4A23DFF41DF5420200D57BC0 /* ContentViewController.h */,
-				4A23DFF51DF5420200D57BC0 /* ContentViewController.m */,
-				4A23DFF61DF5420200D57BC0 /* ContentViewController.xib */,
 				4A490E131DF7C1EA00CF1E6A /* ThirdViewController.h */,
 				4A490E141DF7C1EA00CF1E6A /* ThirdViewController.m */,
 				4A6C23DA1DEE5EE200F61CD0 /* Assets.xcassets */,
@@ -242,6 +253,8 @@
 				4A23DFFA1DF54FA100D57BC0 /* TransDate.m */,
 				4A490E0B1DF6476800CF1E6A /* NetWork.h */,
 				4A490E0C1DF6476800CF1E6A /* NetWork.m */,
+				4A3553751E02227F0083C4F2 /* ImgSrcFix.h */,
+				4A3553761E02227F0083C4F2 /* ImgSrcFix.m */,
 			);
 			name = ext;
 			sourceTree = "<group>";
@@ -467,6 +480,7 @@
 				4A6BDE251DF1187200E69F11 /* NewsListCell.m in Sources */,
 				4A490E111DF693F200CF1E6A /* SecondCollectionViewCell.m in Sources */,
 				4A6C23D01DEE5EE200F61CD0 /* AppDelegate.m in Sources */,
+				4A3553771E02227F0083C4F2 /* ImgSrcFix.m in Sources */,
 				4A490E191DF8034B00CF1E6A /* SecondContentViewController.m in Sources */,
 				4A23DFFB1DF54FA100D57BC0 /* TransDate.m in Sources */,
 				4A490E151DF7C1EA00CF1E6A /* ThirdViewController.m in Sources */,

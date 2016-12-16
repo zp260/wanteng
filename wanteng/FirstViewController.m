@@ -14,7 +14,6 @@
 @implementation FirstViewController
 @synthesize pageControl;
 static int pageCount = 20; //每页加载20个数据
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -23,6 +22,11 @@ static int pageCount = 20; //每页加载20个数据
     pageControl.currentPage = 0;
     startPage = 0;
     siteID = 2;
+    
+    self.title = @"城区网站";
+    
+    parameter = [[NSMutableDictionary alloc]init];
+    [parameter setValue:@"1" forKey:@"thumb"];
 
     [_tableView registerNib:[UINib nibWithNibName:@"NewsListCell" bundle:nil] forCellReuseIdentifier:@"newsListCell"];
     
@@ -32,32 +36,38 @@ static int pageCount = 20; //每页加载20个数据
     [self jsonGet:2 startpage:0 pagecount:20];
     
     //下拉刷新
+   _tableController = [[UITableViewController alloc]init];
+    _tableController.tableView = _tableView;
+    
     UIRefreshControl *refresh = [[UIRefreshControl alloc]init];
     refresh.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
-    [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    _tableView.refreshControl =refresh;
+    [refresh addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
+    _tableController.refreshControl =refresh;
     
     [self addTimer];
     
 }
 #pragma 获取网络数据
 -(void)jsonGet:(int)siteid startpage:(int)startpage pagecount:(int)pagecount{
-    NSString* articleListUrl = [[NSString alloc]initWithFormat:@"%@%d/%d/%d%@",@"http://www.dtcqzf.gov.cn/mobile/article/list/",siteid,startpage,pagecount,@"?thumb=1" ];
+    NSString* articleListUrl = [[NSString alloc]initWithFormat:@"%@%d/%d/%d",@"http://www.dtcqzf.gov.cn/mobile/article/list/",siteid,startpage,pagecount];
     NetWork *work = [[NetWork alloc]init];
-    [work byGet:articleListUrl dic:nil withBlock:^(NSArray *needArray, NSError *error) {
+    [work byGet:articleListUrl dic:parameter withBlock:^(NSArray *needArray, NSError *error) {
         [self.recipes addObjectsFromArray:needArray] ;
         [_tableView reloadData];
         [_loadMoreView stopAnimation];//数据加载成功后停止旋转菊花
+        if(needArray.count<pageCount){  //如果载入的数据量小于每页应该加载的数据量，说明到最后一页了
+            [_loadMoreView noMoreData];
+        }
     }];
 }
 #pragma mark-下拉刷新
--(void)refresh{
-    if (_tableView.refreshControl.isRefreshing) {
+-(void)refreshData{
+    if (_tableController.refreshControl.isRefreshing) {
         [_recipes removeAllObjects]; //清除旧数据，每次加载都是最新的数据
-        _tableView.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"加载中。。。"];
+        _tableController.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"加载中。。。"];
         [self jsonGet:2 startpage:0 pagecount:20];
-        _tableView.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
-        [_tableView.refreshControl endRefreshing];
+        _tableController.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
+        [_tableController.refreshControl endRefreshing];
         _loadMoreView.tipsLabel.hidden = YES;
         startPage = 0;
         
@@ -116,7 +126,7 @@ static int pageCount = 20; //每页加载20个数据
 #pragma mark-初始frame
 -(void)initFrame{
     [_foucsScroll setFrame:CGRectMake(0, 0, kDeviceWidth, 150)];
-    [_tableView setFrame:CGRectMake(10, 0, kDeviceWidth-20, kDeviceHeight)];
+    [_tableView setFrame:CGRectMake(10, 64, kDeviceWidth-20, kDeviceHeight)];
     
     int btX = 0;
     float btY = _foucsScroll.bottom + 10 ;
@@ -304,7 +314,7 @@ static int pageCount = 20; //每页加载20个数据
         /*self.refreshControl.isRefreshing == NO加这个条件是为了防止下面的情况发生：
          每次进入UITableView，表格都会沉降一段距离，这个时候就会导致currentOffsetY + scrollView.frame.size.height   > scrollView.contentSize.height 被触发，从而触发loadMore方法，而不会触发refresh方法。
          */
-        if ( currentOffsetY + scrollView.frame.size.height  > scrollView.contentSize.height &&  _tableView.refreshControl.isRefreshing == NO  && self.loadMoreView.isAnimating == NO && self.loadMoreView.tipsLabel.isHidden ){
+        if ( currentOffsetY + scrollView.frame.size.height  > scrollView.contentSize.height &&  _tableController.refreshControl.isRefreshing == NO  && self.loadMoreView.isAnimating == NO && self.loadMoreView.tipsLabel.isHidden ){
             [self.loadMoreView startAnimation];//开始旋转菊花
             [self loadMore];
         }
@@ -339,6 +349,21 @@ static int pageCount = 20; //每页加载20个数据
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark-按钮点击事件
+
+- (IBAction)histotyClick:(id)sender {
+    ContentViewController *content = [[ContentViewController alloc]init];
+    content.id =[NSNumber numberWithInteger:29310];
+    [self.navigationController pushViewController:content animated:YES];
+    
+}
+#pragma mark-  nav 按钮点击事件
+- (IBAction)showLeft:(id)sender {
+    
+}
+
+
 
 #pragma 图片点击事件代理
 @end

@@ -13,7 +13,7 @@
         <!--First View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="first" id="9pv-A4-QxB" customClass="FirstViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -92,23 +92,6 @@
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="通知公告" backgroundImage="tab_activity"/>
                                     </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHp-qf-Tr2">
-                                        <rect key="frame" x="8" y="129" width="70" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="历史沿革" backgroundImage="tab_photo"/>
-                                        <connections>
-                                            <action selector="historyClick:" destination="9pv-A4-QxB" eventType="touchUpInside" id="rjc-gE-Z2j"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugo-bI-sEx">
-                                        <rect key="frame" x="8" y="129" width="70" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="行政区划" backgroundImage="tab_photo"/>
-                                    </button>
                                     <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVL-qP-s04">
                                         <rect key="frame" x="15" y="126" width="55" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -137,6 +120,24 @@
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="民族宗教" backgroundImage="tab_photo"/>
                                     </button>
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHp-qf-Tr2">
+                                        <rect key="frame" x="8" y="129" width="70" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="历史沿革" backgroundImage="tab_photo"/>
+                                        <connections>
+                                            <action selector="historyClick:" destination="9pv-A4-QxB" eventType="touchUpInside" id="rjc-gE-Z2j"/>
+                                            <action selector="histotyClick:" destination="9pv-A4-QxB" eventType="touchUpInside" id="p4l-oH-cgY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugo-bI-sEx">
+                                        <rect key="frame" x="8" y="129" width="70" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="行政区划" backgroundImage="tab_photo"/>
+                                    </button>
                                     <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="00L-0C-r90">
                                         <rect key="frame" x="138" y="153" width="70" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -156,27 +157,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="WEP-4w-jQx">
-                        <leftBarButtonItems>
-                            <barButtonItem style="plain" id="Azr-Qv-mdv">
-                                <view key="customView" contentMode="scaleToFill" id="9xp-DA-5fy">
-                                    <rect key="frame" x="20" y="7" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tab_photo" translatesAutoresizingMaskIntoConstraints="NO" id="y5d-3R-kFV">
-                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                </view>
-                            </barButtonItem>
-                            <barButtonItem title="Item" style="plain" id="Ufl-Gc-VXe">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VHp-jn-txV">
-                                    <rect key="frame" x="58" y="7" width="92" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="城区门户"/>
-                                </button>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="Azr-Qv-mdv">
+                            <connections>
+                                <action selector="showLeft:" destination="9pv-A4-QxB" id="W6p-cl-TFt"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="pN3-6X-ASP"/>
                     </navigationItem>
                     <connections>

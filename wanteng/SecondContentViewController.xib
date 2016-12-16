@@ -11,16 +11,35 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SecondContentViewController">
             <connections>
+                <outlet property="administrativeItem" destination="qDa-Dh-b7l" id="zxX-xI-vc7"/>
+                <outlet property="leaderItem" destination="Ou9-9e-FLv" id="C4E-7Z-ZkG"/>
+                <outlet property="orgItem" destination="rSo-ZJ-qV1" id="sOO-cI-qyr"/>
+                <outlet property="swipeLeft" destination="z56-bJ-QYn" id="GFA-FC-Fpj"/>
+                <outlet property="swipeRight" destination="3q0-pI-mgy" id="hur-6Y-hBP"/>
                 <outlet property="tabBar" destination="Obl-n8-mdY" id="dd7-No-y2g"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webview" destination="09l-qu-ccG" id="RnT-Vz-LBg"/>
             </connections>
         </placeholder>
+        <swipeGestureRecognizer direction="right" id="3q0-pI-mgy">
+            <connections>
+                <action selector="swipeRight:" destination="-1" id="B1N-dN-zbF"/>
+                <outlet property="delegate" destination="-1" id="PJN-yG-vlp"/>
+            </connections>
+        </swipeGestureRecognizer>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09l-qu-ccG">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="z56-bJ-QYn" appends="YES" id="AWO-DQ-4v8"/>
+                        <outletCollection property="gestureRecognizers" destination="3q0-pI-mgy" appends="YES" id="vYD-vZ-X54"/>
+                    </connections>
+                </webView>
                 <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obl-n8-mdY">
                     <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -36,23 +55,25 @@
                         <outlet property="delegate" destination="-1" id="ovX-y4-cVc"/>
                     </connections>
                 </tabBar>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09l-qu-ccG">
-                    <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </webView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="09l-qu-ccG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0xe-rF-I9U"/>
                 <constraint firstAttribute="trailing" secondItem="Obl-n8-mdY" secondAttribute="trailing" id="24e-vP-A9h"/>
-                <constraint firstItem="09l-qu-ccG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="7j0-S6-RUu"/>
-                <constraint firstItem="Obl-n8-mdY" firstAttribute="top" secondItem="09l-qu-ccG" secondAttribute="bottom" id="BHF-WY-0cO"/>
-                <constraint firstAttribute="trailing" secondItem="09l-qu-ccG" secondAttribute="trailing" id="Knl-YH-buS"/>
-                <constraint firstItem="09l-qu-ccG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QFR-mz-6QY"/>
+                <constraint firstItem="Obl-n8-mdY" firstAttribute="top" secondItem="09l-qu-ccG" secondAttribute="bottom" id="9qN-Ic-BGO"/>
+                <constraint firstItem="09l-qu-ccG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="M45-Je-qxo"/>
                 <constraint firstItem="Obl-n8-mdY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VAf-cq-OXr"/>
                 <constraint firstAttribute="bottom" secondItem="Obl-n8-mdY" secondAttribute="bottom" id="g2C-D2-EoW"/>
+                <constraint firstAttribute="trailing" secondItem="09l-qu-ccG" secondAttribute="trailing" id="jRk-Nf-fwg"/>
             </constraints>
             <point key="canvasLocation" x="479.5" y="-639.5"/>
         </view>
+        <swipeGestureRecognizer direction="left" id="z56-bJ-QYn">
+            <connections>
+                <action selector="swipeLeft:" destination="-1" id="x7l-Dx-g8M"/>
+                <outlet property="delegate" destination="-1" id="wdC-xf-ekM"/>
+            </connections>
+        </swipeGestureRecognizer>
     </objects>
     <resources>
         <image name="car" width="35" height="23"/>

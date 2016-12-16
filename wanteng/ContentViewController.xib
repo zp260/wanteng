@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="contenTitle" destination="161-4k-6LF" id="P8g-wd-aJF"/>
                 <outlet property="date_source" destination="eng-OP-cPq" id="DMJ-dD-iWf"/>
+                <outlet property="swipRight" destination="nPh-rK-TCD" id="49D-Bk-Ekz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="TTK-er-f90" id="yaZ-zK-xth"/>
             </connections>
@@ -28,9 +29,12 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTK-er-f90">
+                <webView multipleTouchEnabled="YES" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TTK-er-f90">
                     <rect key="frame" x="10" y="130" width="355" height="493"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="nPh-rK-TCD" appends="YES" id="JSP-Qj-oTy"/>
+                    </connections>
                 </webView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eng-OP-cPq">
                     <rect key="frame" x="16" y="110" width="343" height="0.0"/>
@@ -40,6 +44,7 @@
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="TTK-er-f90" firstAttribute="top" secondItem="eng-OP-cPq" secondAttribute="bottom" constant="20" id="3Qs-rI-sao"/>
                 <constraint firstItem="161-4k-6LF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="6hA-24-ZHU"/>
@@ -55,5 +60,11 @@
             </constraints>
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
+        <swipeGestureRecognizer direction="right" id="nPh-rK-TCD">
+            <connections>
+                <action selector="swipeRight:" destination="-1" id="3ge-HS-vaF"/>
+                <outlet property="delegate" destination="-1" id="NTw-Mi-LBb"/>
+            </connections>
+        </swipeGestureRecognizer>
     </objects>
 </document>
