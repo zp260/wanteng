@@ -40,7 +40,7 @@
 		4A6C24191DEFC7D500F61CD0 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C24151DEFC7D400F61CD0 /* UIView+Extension.m */; };
 		4A7BE6801DFA38C700FD826C /* SecondCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7BE67F1DFA38C700FD826C /* SecondCollectionReusableView.m */; };
 		4AE4B2571E08E35A0084A75F /* customUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4B2561E08E35A0084A75F /* customUIButton.m */; };
-		4AE4B25A1E0912DC0084A75F /* FourButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4B2591E0912DC0084A75F /* FourButtonView.m */; };
+		4AE4B2621E0918540084A75F /* FourUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4B2611E0918540084A75F /* FourUIButton.m */; };
 		4AE78DB11DFAAE21000D8738 /* FourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE78DB01DFAAE21000D8738 /* FourViewController.m */; };
 		4AE78DB41DFE4F4A000D8738 /* SGLoadMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE78DB31DFE4F4A000D8738 /* SGLoadMoreView.m */; };
 		EBDFB6BA839D519CA7D2AC2A /* libPods-wanteng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD270246228C5811B4F763BC /* libPods-wanteng.a */; };
@@ -126,8 +126,8 @@
 		4A7BE67F1DFA38C700FD826C /* SecondCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondCollectionReusableView.m; sourceTree = "<group>"; };
 		4AE4B2551E08E35A0084A75F /* customUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customUIButton.h; sourceTree = "<group>"; };
 		4AE4B2561E08E35A0084A75F /* customUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customUIButton.m; sourceTree = "<group>"; };
-		4AE4B2581E0912DC0084A75F /* FourButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourButtonView.h; sourceTree = "<group>"; };
-		4AE4B2591E0912DC0084A75F /* FourButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourButtonView.m; sourceTree = "<group>"; };
+		4AE4B2601E0918540084A75F /* FourUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourUIButton.h; sourceTree = "<group>"; };
+		4AE4B2611E0918540084A75F /* FourUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourUIButton.m; sourceTree = "<group>"; };
 		4AE78DAF1DFAAE21000D8738 /* FourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourViewController.h; sourceTree = "<group>"; };
 		4AE78DB01DFAAE21000D8738 /* FourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourViewController.m; sourceTree = "<group>"; };
 		4AE78DB21DFE4F4A000D8738 /* SGLoadMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SGLoadMoreView.h; path = wanteng/SGLoadMoreView.h; sourceTree = "<group>"; };
@@ -329,8 +329,8 @@
 				4A6BDE241DF1187200E69F11 /* NewsListCell.xib */,
 				4AE4B2551E08E35A0084A75F /* customUIButton.h */,
 				4AE4B2561E08E35A0084A75F /* customUIButton.m */,
-				4AE4B2581E0912DC0084A75F /* FourButtonView.h */,
-				4AE4B2591E0912DC0084A75F /* FourButtonView.m */,
+				4AE4B2601E0918540084A75F /* FourUIButton.h */,
+				4AE4B2611E0918540084A75F /* FourUIButton.m */,
 			);
 			name = custom;
 			sourceTree = "<group>";
@@ -545,8 +545,8 @@
 				4A4CEE8A1E0787EA00D16D8E /* FirstMainViewController.m in Sources */,
 				4A23DFFB1DF54FA100D57BC0 /* TransDate.m in Sources */,
 				4A490E151DF7C1EA00CF1E6A /* ThirdViewController.m in Sources */,
+				4AE4B2621E0918540084A75F /* FourUIButton.m in Sources */,
 				4A6C23D31DEE5EE200F61CD0 /* FirstViewController.m in Sources */,
-				4AE4B25A1E0912DC0084A75F /* FourButtonView.m in Sources */,
 				4A6C240B1DEECCD700F61CD0 /* LoadingImageview.m in Sources */,
 				4A23DFF71DF5420200D57BC0 /* ContentViewController.m in Sources */,
 				4AE78DB11DFAAE21000D8738 /* FourViewController.m in Sources */,

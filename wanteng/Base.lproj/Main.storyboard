@@ -127,7 +127,7 @@
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VH2-7Y-9MM">
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VH2-7Y-9MM" customClass="FourUIButton">
                                         <rect key="frame" x="138" y="131" width="70" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -135,7 +135,7 @@
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="民族宗教" backgroundImage="ic_desc_2"/>
                                     </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFs-2z-JNK">
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFs-2z-JNK" customClass="FourUIButton">
                                         <rect key="frame" x="318" y="129" width="63" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -143,7 +143,7 @@
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="地理位置" backgroundImage="ic_desc_3"/>
                                     </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHp-qf-Tr2">
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHp-qf-Tr2" customClass="FourUIButton">
                                         <rect key="frame" x="230" y="131" width="70" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -154,6 +154,14 @@
                                             <action selector="historyClick:" destination="9pv-A4-QxB" eventType="touchUpInside" id="rjc-gE-Z2j"/>
                                             <action selector="histotyClick:" destination="9pv-A4-QxB" eventType="touchUpInside" id="p4l-oH-cgY"/>
                                         </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugo-bI-sEx" customClass="FourUIButton">
+                                        <rect key="frame" x="60" y="129" width="70" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="行政区划" backgroundImage="ic_desc_1"/>
                                     </button>
                                     <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="00L-0C-r90">
                                         <rect key="frame" x="138" y="153" width="70" height="28"/>
@@ -167,14 +175,6 @@
                                             <outlet property="delegate" destination="9pv-A4-QxB" id="t2Q-nb-MHW"/>
                                         </connections>
                                     </scrollView>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugo-bI-sEx">
-                                        <rect key="frame" x="60" y="129" width="70" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="行政区划" backgroundImage="ic_desc_1"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -703,16 +703,16 @@
     <resources>
         <image name="face" width="28" height="23"/>
         <image name="first" width="30" height="30"/>
-        <image name="ic_cat_0" width="28" height="28"/>
+        <image name="ic_cat_0" width="43" height="43"/>
         <image name="ic_cat_1" width="43" height="43"/>
         <image name="ic_cat_2" width="43" height="43"/>
-        <image name="ic_cat_3" width="28" height="28"/>
-        <image name="ic_cat_4" width="28" height="28"/>
-        <image name="ic_cat_5" width="28" height="28"/>
-        <image name="ic_cat_6" width="28" height="28"/>
-        <image name="ic_cat_7" width="28" height="28"/>
-        <image name="ic_cat_8" width="28" height="28"/>
-        <image name="ic_cat_9" width="86" height="86"/>
+        <image name="ic_cat_3" width="43" height="43"/>
+        <image name="ic_cat_4" width="43" height="43"/>
+        <image name="ic_cat_5" width="43" height="43"/>
+        <image name="ic_cat_6" width="43" height="43"/>
+        <image name="ic_cat_7" width="43" height="43"/>
+        <image name="ic_cat_8" width="43" height="43"/>
+        <image name="ic_cat_9" width="43" height="43"/>
         <image name="ic_desc_0" width="128" height="136"/>
         <image name="ic_desc_1" width="128" height="136"/>
         <image name="ic_desc_2" width="128" height="136"/>

@@ -163,22 +163,6 @@ static int pageCount = 20; //每页加载20个数据
     _nationButton.frame = CGRectMake(_adminAreaButton.right+blank, _adminAreaButton.top, f_btWidth, f_btHeight);
     _areaButton.frame = CGRectMake(_nationButton.right+blank, _historyButton.top, f_btWidth, f_btHeight);
     
-    //添加按钮的背景view
-    _backgroudIMG.frame  = CGRectMake(0, _historyButton.height-15, _historyButton.width, 15);
-    
-    UIImageView *backIMG2 = [[UIImageView alloc]init];
-    UIImageView *backIMG3 = [[UIImageView alloc]init];
-    UIImageView *backIMG4 = [[UIImageView alloc]init];
-    
-    backIMG2.frame = backIMG3.frame = backIMG4.frame = _backgroudIMG.frame;
-    backIMG2.alpha = backIMG3.alpha = backIMG4.alpha = _backgroudIMG.alpha;
-    backIMG2.backgroundColor = backIMG3.backgroundColor = backIMG4.backgroundColor = _backgroudIMG.backgroundColor;
-    
-    [_historyButton addSubview:_backgroudIMG];
-    [_adminAreaButton addSubview:backIMG2];
-    [_nationButton addSubview:backIMG3];
-    [_areaButton addSubview:backIMG4];
-    
     _headerView.frame = CGRectMake(0, 0 , _tableView.width, _historyButton.bottom+10);//定义tableHeaderView
 //    NSLog(@"_tableView.frame%@",NSStringFromCGRect(_tableView.frame));
     _tableView.tableHeaderView = _headerView;

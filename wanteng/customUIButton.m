@@ -23,7 +23,7 @@
     
     if(self.titleLabel.text && self.imageView.image)
     {
-        CGFloat marginH = (self.frame.size.height - self.imageView.frame.size.height - self.titleLabel.frame.size.height)/3;
+        CGFloat marginH = (self.frame.size.height - self.imageView.frame.size.height - self.titleLabel.frame.size.height)/2;
         CGFloat imageW_H = 43;
         //图片
         CGPoint imageCenter = self.imageView.center;

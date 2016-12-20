@@ -16,6 +16,7 @@
 #import "LoadingImageview.h"
 #import "NetWork.h"
 #import "SGLoadMoreView.h"
+#import "FourUIButton.h"
 
 @interface FirstViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UIGestureRecognizerDelegate>{
     int startPage; //开始的页面
@@ -37,7 +38,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *messageButton;
 
 //4个按钮
-@property (weak, nonatomic) IBOutlet UIButton *historyButton;
+@property (strong, nonatomic) IBOutlet FourUIButton *historyButton;
 @property (weak, nonatomic) IBOutlet UIButton *adminAreaButton;
 @property (weak, nonatomic) IBOutlet UIButton *nationButton;
 @property (weak, nonatomic) IBOutlet UIButton *areaButton;
