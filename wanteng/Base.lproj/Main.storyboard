@@ -6,6 +6,7 @@
     <dependencies>
         <deployment version="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,107 +37,123 @@
                                 <rect key="frame" x="0.0" y="72" width="414" height="181"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfw-vB-9YK">
-                                        <rect key="frame" x="15" y="126" width="55" height="55"/>
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfw-vB-9YK" customClass="customUIButton">
+                                        <rect key="frame" x="5" y="126" width="78" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="新闻动态" backgroundImage="tab_activity"/>
+                                        <state key="normal" title="新闻动态" image="ic_cat_0">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG1-io-3lm">
-                                        <rect key="frame" x="15" y="126" width="55" height="55"/>
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG1-io-3lm" customClass="customUIButton">
+                                        <rect key="frame" x="-16" y="126" width="117" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="信息公开" backgroundImage="tab_activity"/>
+                                        <state key="normal" title="信息公开" image="ic_cat_1">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOQ-mR-dGg">
-                                        <rect key="frame" x="15" y="126" width="55" height="55"/>
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOQ-mR-dGg" customClass="customUIButton">
+                                        <rect key="frame" x="-16" y="126" width="117" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="应急管理" backgroundImage="tab_activity"/>
+                                        <state key="normal" title="应急管理" image="ic_cat_2">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAj-Fk-BZr">
-                                        <rect key="frame" x="15" y="126" width="55" height="55"/>
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAj-Fk-BZr" customClass="customUIButton">
+                                        <rect key="frame" x="-8" y="126" width="102" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="政府文件" backgroundImage="tab_activity"/>
+                                        <state key="normal" title="政府文件" image="ic_cat_3">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3s-X7-qJ1">
-                                        <rect key="frame" x="15" y="126" width="55" height="55"/>
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3s-X7-qJ1" customClass="customUIButton">
+                                        <rect key="frame" x="-8" y="126" width="102" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="经济发展" backgroundImage="tab_activity"/>
+                                        <state key="normal" title="经济发展" image="ic_cat_5">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0R-cE-xnh">
-                                        <rect key="frame" x="15" y="126" width="55" height="55"/>
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0R-cE-xnh" customClass="customUIButton">
+                                        <rect key="frame" x="-8" y="126" width="102" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="城市管理" backgroundImage="tab_activity"/>
+                                        <state key="normal" title="城市管理" image="ic_cat_7">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FP2-Ha-5Ni">
-                                        <rect key="frame" x="15" y="127" width="55" height="54"/>
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FP2-Ha-5Ni" customClass="customUIButton">
+                                        <rect key="frame" x="-8" y="127" width="102" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="社会治理" backgroundImage="tab_activity"/>
+                                        <state key="normal" title="社会治理" image="ic_cat_8">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNl-Yo-XDi">
-                                        <rect key="frame" x="19" y="127" width="48" height="54"/>
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNl-Yo-XDi" customClass="customUIButton">
+                                        <rect key="frame" x="-37" y="127" width="160" height="86"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="通知公告" backgroundImage="tab_activity"/>
+                                        <state key="normal" title="通知公告" image="ic_cat_9">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVL-qP-s04">
-                                        <rect key="frame" x="15" y="126" width="55" height="55"/>
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVL-qP-s04" customClass="customUIButton">
+                                        <rect key="frame" x="-8" y="126" width="102" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="重点企业" backgroundImage="tab_activity"/>
+                                        <state key="normal" title="重点企业" image="ic_cat_6">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFs-2z-JNK">
-                                        <rect key="frame" x="11" y="129" width="63" height="50"/>
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwY-0u-vpz" customClass="customUIButton">
+                                        <rect key="frame" x="-8" y="126" width="102" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="地理位置" backgroundImage="tab_photo"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwY-0u-vpz">
-                                        <rect key="frame" x="19" y="126" width="48" height="55"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="三公经费" backgroundImage="tab_activity"/>
+                                        <state key="normal" title="三公经费" image="ic_cat_4">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
                                     <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VH2-7Y-9MM">
                                         <rect key="frame" x="138" y="131" width="70" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="民族宗教" backgroundImage="tab_photo"/>
+                                        <state key="normal" title="民族宗教" backgroundImage="ic_desc_2"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFs-2z-JNK">
+                                        <rect key="frame" x="318" y="129" width="63" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="地理位置" backgroundImage="ic_desc_3"/>
                                     </button>
                                     <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHp-qf-Tr2">
-                                        <rect key="frame" x="8" y="129" width="70" height="50"/>
+                                        <rect key="frame" x="230" y="131" width="70" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="历史沿革" backgroundImage="tab_photo"/>
+                                        <state key="normal" title="历史沿革" backgroundImage="ic_desc_0"/>
                                         <connections>
                                             <action selector="historyClick:" destination="9pv-A4-QxB" eventType="touchUpInside" id="rjc-gE-Z2j"/>
                                             <action selector="histotyClick:" destination="9pv-A4-QxB" eventType="touchUpInside" id="p4l-oH-cgY"/>
                                         </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugo-bI-sEx">
-                                        <rect key="frame" x="8" y="129" width="70" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="行政区划" backgroundImage="tab_photo"/>
                                     </button>
                                     <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="00L-0C-r90">
                                         <rect key="frame" x="138" y="153" width="70" height="28"/>
@@ -150,6 +167,14 @@
                                             <outlet property="delegate" destination="9pv-A4-QxB" id="t2Q-nb-MHW"/>
                                         </connections>
                                     </scrollView>
+                                    <button opaque="NO" contentMode="bottom" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugo-bI-sEx">
+                                        <rect key="frame" x="60" y="129" width="70" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="tintColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="行政区划" backgroundImage="ic_desc_1"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -532,7 +557,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIo-uo-bDw">
-                                        <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -540,22 +565,20 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="LIo-uo-bDw" secondAttribute="trailing" id="NhW-xK-KdB"/>
                                     <constraint firstItem="LIo-uo-bDw" firstAttribute="leading" secondItem="fah-kr-QUj" secondAttribute="leading" id="TMX-f3-Rzh"/>
-                                    <constraint firstItem="LIo-uo-bDw" firstAttribute="top" secondItem="fah-kr-QUj" secondAttribute="top" constant="64" id="ZPb-yg-5mq"/>
+                                    <constraint firstItem="LIo-uo-bDw" firstAttribute="top" secondItem="fah-kr-QUj" secondAttribute="top" id="ZPb-yg-5mq"/>
                                     <constraint firstAttribute="bottom" secondItem="LIo-uo-bDw" secondAttribute="bottom" id="dH6-aW-Thq"/>
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3YU-QA-rMV">
-                                <rect key="frame" x="0.0" y="64" width="150" height="623"/>
+                                <rect key="frame" x="0.0" y="64" width="207" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="dEd-G6-deO"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3YU-QA-rMV" firstAttribute="leading" secondItem="4Ew-KT-qg3" secondAttribute="leading" id="6Rb-iV-UPD"/>
                             <constraint firstItem="3YU-QA-rMV" firstAttribute="top" secondItem="l6W-UI-IS3" secondAttribute="bottom" id="GrA-zB-0g7"/>
+                            <constraint firstItem="3YU-QA-rMV" firstAttribute="width" secondItem="4Ew-KT-qg3" secondAttribute="width" multiplier="1/2" id="TPe-Ce-VMa"/>
                             <constraint firstItem="fah-kr-QUj" firstAttribute="leading" secondItem="4Ew-KT-qg3" secondAttribute="leading" id="XtK-gi-htX"/>
                             <constraint firstItem="fah-kr-QUj" firstAttribute="top" secondItem="4Ew-KT-qg3" secondAttribute="top" id="frN-B1-ZIF"/>
                             <constraint firstAttribute="trailing" secondItem="fah-kr-QUj" secondAttribute="trailing" id="i7z-TB-f8m"/>
@@ -680,8 +703,21 @@
     <resources>
         <image name="face" width="28" height="23"/>
         <image name="first" width="30" height="30"/>
+        <image name="ic_cat_0" width="28" height="28"/>
+        <image name="ic_cat_1" width="43" height="43"/>
+        <image name="ic_cat_2" width="43" height="43"/>
+        <image name="ic_cat_3" width="28" height="28"/>
+        <image name="ic_cat_4" width="28" height="28"/>
+        <image name="ic_cat_5" width="28" height="28"/>
+        <image name="ic_cat_6" width="28" height="28"/>
+        <image name="ic_cat_7" width="28" height="28"/>
+        <image name="ic_cat_8" width="28" height="28"/>
+        <image name="ic_cat_9" width="86" height="86"/>
+        <image name="ic_desc_0" width="128" height="136"/>
+        <image name="ic_desc_1" width="128" height="136"/>
+        <image name="ic_desc_2" width="128" height="136"/>
+        <image name="ic_desc_3" width="128" height="136"/>
         <image name="scrool_1" width="1200" height="774"/>
-        <image name="tab_activity" width="25" height="21"/>
         <image name="tab_me" width="25" height="21"/>
         <image name="tab_photo" width="25" height="21"/>
         <image name="tab_video" width="25" height="21"/>

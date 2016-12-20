@@ -94,6 +94,7 @@
     [self.contentView addSubview:columnVC.view];
     NSLog(@"%@",self.contentView);
     // 在添加到mainView之前 ,先得到mainView导航控制器的子控制器,并将其移除(如果有的话),然后才将新的栏目对应的子控制器添加到导航控制器容器中,注意,这儿可以用字典 记住 所有的已经实例化出来 的栏目子控制器,这样就避免每次都alloc创建新的栏目子控制器,而是只需要根据类名,从字典取出上一次实例化了的同一栏目的子控制器即可
+    _leftView.hidden = YES;
     
 }
 // 抽取出来的公共代码,设置mainView的x,参数是endX

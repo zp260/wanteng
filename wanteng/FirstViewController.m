@@ -136,6 +136,8 @@ static int pageCount = 20; //每页加载20个数据
     
     int btX = 0;
     float btY = _foucsScroll.bottom + 10 ;
+    
+    //间距固定 设置按钮
     float blank = 10;
     float btWidth = (_tableView.width - 4*10) / 5;
     float btHeight =btWidth;
@@ -372,4 +374,6 @@ static int pageCount = 20; //每页加载20个数据
 
 
 #pragma 图片点击事件代理
+
+#pragma mark-布局事件
 @end

@@ -22,11 +22,11 @@
     [super viewDidLoad];
     
     //主城区栏目
-    Column *newsColumn = [Column columnNamed:@"城区" imgName:@"face" className:@"FirstViewController"];
+    Column *newsColumn = [Column columnNamed:@"城区" imgName:@"ic_zheng" className:@"FirstViewController"];
     //南郊栏目
-    Column *nanjiaoColumn =[Column columnNamed:@"南郊" imgName:@"face" className:@""];
+    Column *nanjiaoColumn =[Column columnNamed:@"南郊" imgName:@"ic_zheng" className:@""];
     //安监局栏目
-    Column *safeColumn =[Column columnNamed:@"安监局" imgName:@"face" className:@""];
+    Column *safeColumn =[Column columnNamed:@"安监局" imgName:@"ic_zheng" className:@""];
     _arr = @[newsColumn,nanjiaoColumn,safeColumn];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
