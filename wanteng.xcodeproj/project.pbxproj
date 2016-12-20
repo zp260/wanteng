@@ -17,6 +17,11 @@
 		4A490E151DF7C1EA00CF1E6A /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A490E141DF7C1EA00CF1E6A /* ThirdViewController.m */; };
 		4A490E191DF8034B00CF1E6A /* SecondContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A490E171DF8034B00CF1E6A /* SecondContentViewController.m */; };
 		4A490E1A1DF8034B00CF1E6A /* SecondContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A490E181DF8034B00CF1E6A /* SecondContentViewController.xib */; };
+		4A4CEE7C1E03E51C00D16D8E /* TLWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CEE7A1E03E51C00D16D8E /* TLWindow.m */; };
+		4A4CEE801E07795100D16D8E /* Column.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CEE7F1E07795100D16D8E /* Column.m */; };
+		4A4CEE841E077BDD00D16D8E /* LeftTableViewControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CEE831E077BDD00D16D8E /* LeftTableViewControllerDelegate.m */; };
+		4A4CEE871E077E2E00D16D8E /* LeftTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CEE861E077E2E00D16D8E /* LeftTableViewController.m */; };
+		4A4CEE8A1E0787EA00D16D8E /* FirstMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CEE891E0787EA00D16D8E /* FirstMainViewController.m */; };
 		4A6BDE251DF1187200E69F11 /* NewsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6BDE231DF1187200E69F11 /* NewsListCell.m */; };
 		4A6BDE261DF1187200E69F11 /* NewsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6BDE241DF1187200E69F11 /* NewsListCell.xib */; };
 		4A6C23CD1DEE5EE200F61CD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C23CC1DEE5EE200F61CD0 /* main.m */; };
@@ -75,6 +80,16 @@
 		4A490E171DF8034B00CF1E6A /* SecondContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondContentViewController.m; sourceTree = "<group>"; };
 		4A490E181DF8034B00CF1E6A /* SecondContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondContentViewController.xib; sourceTree = "<group>"; };
 		4A490E1E1DF8FCB200CF1E6A /* SDwebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDwebImage.h; sourceTree = "<group>"; };
+		4A4CEE7A1E03E51C00D16D8E /* TLWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLWindow.m; path = wanteng/TLWindow.m; sourceTree = "<group>"; };
+		4A4CEE7B1E03E51C00D16D8E /* TLWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLWindow.h; path = wanteng/TLWindow.h; sourceTree = "<group>"; };
+		4A4CEE7E1E07795100D16D8E /* Column.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Column.h; sourceTree = "<group>"; };
+		4A4CEE7F1E07795100D16D8E /* Column.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Column.m; sourceTree = "<group>"; };
+		4A4CEE821E077BDD00D16D8E /* LeftTableViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTableViewControllerDelegate.h; sourceTree = "<group>"; };
+		4A4CEE831E077BDD00D16D8E /* LeftTableViewControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewControllerDelegate.m; sourceTree = "<group>"; };
+		4A4CEE851E077E2E00D16D8E /* LeftTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTableViewController.h; sourceTree = "<group>"; };
+		4A4CEE861E077E2E00D16D8E /* LeftTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewController.m; sourceTree = "<group>"; };
+		4A4CEE881E0787EA00D16D8E /* FirstMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstMainViewController.h; sourceTree = "<group>"; };
+		4A4CEE891E0787EA00D16D8E /* FirstMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstMainViewController.m; sourceTree = "<group>"; };
 		4A6BDE221DF1187200E69F11 /* NewsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListCell.h; sourceTree = "<group>"; };
 		4A6BDE231DF1187200E69F11 /* NewsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListCell.m; sourceTree = "<group>"; };
 		4A6BDE241DF1187200E69F11 /* NewsListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsListCell.xib; sourceTree = "<group>"; };
@@ -153,16 +168,40 @@
 		4A4AB3B31DFFE21800743577 /* first */ = {
 			isa = PBXGroup;
 			children = (
+				4A6C23D11DEE5EE200F61CD0 /* FirstViewController.h */,
+				4A6C23D21DEE5EE200F61CD0 /* FirstViewController.m */,
+				4A4CEE881E0787EA00D16D8E /* FirstMainViewController.h */,
+				4A4CEE891E0787EA00D16D8E /* FirstMainViewController.m */,
+				4A4CEE811E077BAC00D16D8E /* leftView */,
+				4A4CEE7D1E07793200D16D8E /* Column */,
 				4A6BDE221DF1187200E69F11 /* NewsListCell.h */,
 				4A6BDE231DF1187200E69F11 /* NewsListCell.m */,
 				4A6BDE241DF1187200E69F11 /* NewsListCell.xib */,
-				4A6C23D11DEE5EE200F61CD0 /* FirstViewController.h */,
-				4A6C23D21DEE5EE200F61CD0 /* FirstViewController.m */,
 				4A23DFF41DF5420200D57BC0 /* ContentViewController.h */,
 				4A23DFF51DF5420200D57BC0 /* ContentViewController.m */,
 				4A23DFF61DF5420200D57BC0 /* ContentViewController.xib */,
 			);
 			name = first;
+			sourceTree = "<group>";
+		};
+		4A4CEE7D1E07793200D16D8E /* Column */ = {
+			isa = PBXGroup;
+			children = (
+				4A4CEE7E1E07795100D16D8E /* Column.h */,
+				4A4CEE7F1E07795100D16D8E /* Column.m */,
+			);
+			name = Column;
+			sourceTree = "<group>";
+		};
+		4A4CEE811E077BAC00D16D8E /* leftView */ = {
+			isa = PBXGroup;
+			children = (
+				4A4CEE821E077BDD00D16D8E /* LeftTableViewControllerDelegate.h */,
+				4A4CEE831E077BDD00D16D8E /* LeftTableViewControllerDelegate.m */,
+				4A4CEE851E077E2E00D16D8E /* LeftTableViewController.h */,
+				4A4CEE861E077E2E00D16D8E /* LeftTableViewController.m */,
+			);
+			name = leftView;
 			sourceTree = "<group>";
 		};
 		4A6C23BF1DEE5EE200F61CD0 = {
@@ -239,6 +278,8 @@
 		4A6C24081DEECCB700F61CD0 /* ext */ = {
 			isa = PBXGroup;
 			children = (
+				4A4CEE7A1E03E51C00D16D8E /* TLWindow.m */,
+				4A4CEE7B1E03E51C00D16D8E /* TLWindow.h */,
 				4AE78DB21DFE4F4A000D8738 /* SGLoadMoreView.h */,
 				4AE78DB31DFE4F4A000D8738 /* SGLoadMoreView.m */,
 				4A6C24101DEFC7D400F61CD0 /* UIFont+Extension.h */,
@@ -482,18 +523,23 @@
 				4A6C23D01DEE5EE200F61CD0 /* AppDelegate.m in Sources */,
 				4A3553771E02227F0083C4F2 /* ImgSrcFix.m in Sources */,
 				4A490E191DF8034B00CF1E6A /* SecondContentViewController.m in Sources */,
+				4A4CEE801E07795100D16D8E /* Column.m in Sources */,
+				4A4CEE8A1E0787EA00D16D8E /* FirstMainViewController.m in Sources */,
 				4A23DFFB1DF54FA100D57BC0 /* TransDate.m in Sources */,
 				4A490E151DF7C1EA00CF1E6A /* ThirdViewController.m in Sources */,
 				4A6C23D31DEE5EE200F61CD0 /* FirstViewController.m in Sources */,
 				4A6C240B1DEECCD700F61CD0 /* LoadingImageview.m in Sources */,
 				4A23DFF71DF5420200D57BC0 /* ContentViewController.m in Sources */,
 				4AE78DB11DFAAE21000D8738 /* FourViewController.m in Sources */,
+				4A4CEE7C1E03E51C00D16D8E /* TLWindow.m in Sources */,
 				4A6C24171DEFC7D500F61CD0 /* UIFont+Extension.m in Sources */,
 				4AE78DB41DFE4F4A000D8738 /* SGLoadMoreView.m in Sources */,
+				4A4CEE841E077BDD00D16D8E /* LeftTableViewControllerDelegate.m in Sources */,
 				4A6C23CD1DEE5EE200F61CD0 /* main.m in Sources */,
 				4A490E0D1DF6476800CF1E6A /* NetWork.m in Sources */,
 				4A6C24181DEFC7D500F61CD0 /* UIImage+Extension.m in Sources */,
 				4A7BE6801DFA38C700FD826C /* SecondCollectionReusableView.m in Sources */,
+				4A4CEE871E077E2E00D16D8E /* LeftTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

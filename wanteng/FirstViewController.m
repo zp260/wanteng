@@ -17,6 +17,11 @@ static int pageCount = 20; //每页加载20个数据
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    //初始化抽屉参数
+    _isShow = NO;
+    
+    
     pageControl = [[UIPageControl alloc]init];
     pageControl.numberOfPages = 4; //重要，初始化pageControl的时候要初始化它的numberOfPages.
     pageControl.currentPage = 0;
@@ -25,6 +30,7 @@ static int pageCount = 20; //每页加载20个数据
     
     self.title = @"城区网站";
     
+    //设置访问参数
     parameter = [[NSMutableDictionary alloc]init];
     [parameter setValue:@"1" forKey:@"thumb"];
 

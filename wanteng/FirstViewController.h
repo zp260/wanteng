@@ -51,8 +51,11 @@
 @property (strong,nonatomic) NSMutableArray * _Nonnull recipes;
 @property (nonatomic) NSInteger ScroolCount;
 @property (strong, nonatomic) UIPageControl * _Nonnull pageControl;
-@property (nonatomic, strong) NSTimer * _Nonnull timer;
+@property (nonatomic, strong) NSTimer * _Nullable timer;
 @property (nonatomic) NSMutableArray * _Nonnull ScroolImageArray;
 @property (nonatomic,retain) UIImage * _Nonnull lodingIMG;
+
+//判断左边窗口是否显示
+@property (nonatomic, assign) BOOL isShow;
 @end
 
