@@ -110,7 +110,8 @@ static int pageCount = 20; //每页加载20个数据
     _ScroolImageArray = [[NSMutableArray alloc]init];//初始化轮播图片数组
     UIImage *img1 = [UIImage imageNamed:@"scrool_1"];
     UIImage *img2 = [UIImage imageNamed:@"scrool_2"];
-    [_ScroolImageArray addObject:img1];
+    UIImage *img3 = [UIImage imageNamed:@"ad_01"];
+    [_ScroolImageArray addObject:img3];
     [_ScroolImageArray addObject:img2];
     [_ScroolImageArray addObject:img1];
     [_ScroolImageArray addObject:img2];
@@ -132,25 +133,25 @@ static int pageCount = 20; //每页加载20个数据
 #pragma mark-初始frame
 -(void)initFrame{
     [_foucsScroll setFrame:CGRectMake(0, 0, kDeviceWidth, 150)];
-    [_tableView setFrame:CGRectMake(10, 64, kDeviceWidth-20, kDeviceHeight)];
+    [_tableView setFrame:CGRectMake(0, 64, kDeviceWidth, kDeviceHeight)];
     
     int btX = 0;
     float btY = _foucsScroll.bottom + 10 ;
     
     //间距固定 设置按钮
     float blank = 10;
-    float btWidth = (_tableView.width - 4*10) / 5;
+    float btWidth = (_tableView.width - 6*blank) / 5;
     float btHeight =btWidth;
     
     
-    _newsButton.frame = CGRectMake(btX, btY, btWidth, btHeight);
+    _newsButton.frame = CGRectMake(btX+blank, btY, btWidth, btHeight);
     _infoButton.frame = CGRectMake(_newsButton.right+blank, btY, btWidth, btHeight);
     _yjManageButton.frame = CGRectMake(_infoButton.right+blank, btY, btWidth, btHeight);
     _govFilesButton.frame = CGRectMake(_yjManageButton.right+blank, btY, btWidth, btHeight);
     _sangongButton.frame = CGRectMake(_govFilesButton.right+blank, btY, btWidth, btHeight);
     
     
-    _jingjiButton.frame = CGRectMake(btX, _sangongButton.bottom+10, btWidth, btHeight);
+    _jingjiButton.frame = CGRectMake(btX+blank, _sangongButton.bottom+10, btWidth, btHeight);
     _vipOrgButton.frame = CGRectMake(_jingjiButton.right+blank, _jingjiButton.top, btWidth, btHeight);
     _cityManageButton.frame = CGRectMake(_vipOrgButton.right+blank, _jingjiButton.top, btWidth, btHeight);
     _unitManageButton.frame = CGRectMake(_cityManageButton.right+blank, _jingjiButton.top, btWidth, btHeight);
@@ -164,7 +165,6 @@ static int pageCount = 20; //每页加载20个数据
     _areaButton.frame = CGRectMake(_nationButton.right+blank, _historyButton.top, f_btWidth, f_btHeight);
     
     _headerView.frame = CGRectMake(0, 0 , _tableView.width, _historyButton.bottom+10);//定义tableHeaderView
-//    NSLog(@"_tableView.frame%@",NSStringFromCGRect(_tableView.frame));
     _tableView.tableHeaderView = _headerView;
     _loadMoreView = [[SGLoadMoreView alloc]initWithFrame:CGRectMake(0, 0, _tableView.width, 44)];
     _tableView.tableFooterView = _loadMoreView;

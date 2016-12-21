@@ -81,6 +81,7 @@
         columnVC = [[c alloc]init];
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         columnVC = [story instantiateViewControllerWithIdentifier:@"first"];
+        [self.navigationController addChildViewController:columnVC];
         // 并且一定要将其放到 子控制器字典里面,存起来
         [_columnViewControllers setObject:columnVC forKey:column.columnClassName];
     }
