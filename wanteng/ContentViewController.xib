@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <webView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTK-er-f90">
-                    <rect key="frame" x="0.0" y="129" width="370" height="494"/>
+                    <rect key="frame" x="0.0" y="65" width="370" height="558"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="ear-RQ-ows"/>
@@ -82,12 +82,12 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="17L-wD-64p">
-                    <rect key="frame" x="0.0" y="64" width="375" height="65"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="161-4k-6LF">
-                            <rect key="frame" x="10" y="20" width="355" height="20"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="161-4k-6LF">
+                            <rect key="frame" x="10" y="5" width="355" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="20" id="NKR-A9-6ac"/>
+                                <constraint firstAttribute="height" constant="40" id="NKR-A9-6ac"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -109,7 +109,7 @@
                         <constraint firstAttribute="trailing" secondItem="eng-OP-cPq" secondAttribute="trailing" constant="10" id="BQg-Ap-ya2"/>
                         <constraint firstAttribute="bottom" secondItem="eng-OP-cPq" secondAttribute="bottom" id="BeY-A7-UEJ"/>
                         <constraint firstItem="161-4k-6LF" firstAttribute="leading" secondItem="17L-wD-64p" secondAttribute="leading" constant="10" id="CPw-Gh-Hpr"/>
-                        <constraint firstItem="161-4k-6LF" firstAttribute="top" secondItem="17L-wD-64p" secondAttribute="top" constant="20" id="MSO-ph-94S"/>
+                        <constraint firstItem="161-4k-6LF" firstAttribute="top" secondItem="17L-wD-64p" secondAttribute="top" constant="5" id="MSO-ph-94S"/>
                         <constraint firstAttribute="height" constant="65" id="gmw-VJ-ijj"/>
                         <constraint firstItem="eng-OP-cPq" firstAttribute="leading" secondItem="17L-wD-64p" secondAttribute="leading" constant="10" id="rsq-zH-DnI"/>
                     </constraints>
@@ -124,7 +124,7 @@
                 <constraint firstAttribute="trailing" secondItem="Kbh-qt-rZM" secondAttribute="trailing" id="PHo-5g-7x8"/>
                 <constraint firstAttribute="bottom" secondItem="TTK-er-f90" secondAttribute="bottom" constant="44" id="UQG-uJ-UOX"/>
                 <constraint firstAttribute="bottom" secondItem="Kbh-qt-rZM" secondAttribute="bottom" id="iOr-tY-XcE"/>
-                <constraint firstItem="17L-wD-64p" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="oWS-tq-AAe"/>
+                <constraint firstItem="17L-wD-64p" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="oWS-tq-AAe"/>
                 <constraint firstAttribute="trailing" secondItem="17L-wD-64p" secondAttribute="trailing" id="t50-MA-OvQ"/>
                 <constraint firstItem="TTK-er-f90" firstAttribute="top" secondItem="17L-wD-64p" secondAttribute="bottom" id="wjR-TS-6o0"/>
                 <constraint firstItem="TTK-er-f90" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xMr-S7-JwG"/>

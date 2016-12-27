@@ -534,6 +534,9 @@
                                 <state key="normal" title="我的收藏" image="ic_fav_1">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="showColletion:" destination="U5C-pV-K0h" eventType="touchUpInside" id="gjR-JC-6Eq"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_go_01" translatesAutoresizingMaskIntoConstraints="NO" id="G8D-0K-mGf">
                                 <rect key="frame" x="372" y="188" width="32" height="32"/>

@@ -25,7 +25,12 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self searchData];
-    
+}
+-(instancetype)initWithArticle{
+    if(!self.article){
+        self.article = [[Article alloc]init];
+    }
+    return self;
 }
 -(void)getOnlineData{
     NSString* Url = [NSString stringWithFormat:@"%@%@",@"http://www.dtcqzf.gov.cn/mobile/chapter/",_id] ;
@@ -49,8 +54,9 @@
 }
 -(void)refresh{
     if (contentArray.count > 0 ) {
-        NSDictionary *dic = [contentArray objectAtIndex:0];
+        NSDictionary *dic = [contentArray firstObject];
         _contenTitle.text = [dic objectForKey:@"title"];
+        _contenTitle.text = self.article.Title;
         _date_source.text = [NSString stringWithFormat:@"%@    %@",[dic objectForKey:@"source"],[TransDate TimeStamp:[[dic objectForKey:@"createTime"] stringValue]]];
         
         NSString *html = [dic objectForKey:@"content"];
@@ -115,7 +121,7 @@
     }
     else{
         fontSizeChangeTimes+=50;
-        NSString *jsString =[NSString stringWithFormat:@"%@%ld%@", @"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '",fontSizeChangeTimes,@"%'"];
+        NSString *jsString =[NSString stringWithFormat:@"%@%ld%@", @"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '",(long)fontSizeChangeTimes,@"%'"];
         [_webView stringByEvaluatingJavaScriptFromString:jsString];
     }
     
@@ -165,9 +171,10 @@
 
 - (IBAction)collect:(id)sender {
     Collection *collection = [NSEntityDescription insertNewObjectForEntityForName:@"Collection" inManagedObjectContext:self.collectionMOC];
-    collection.articleId = 1;
-    collection.articleSource = @"来源";
-    collection.articleDate = @"2015-10-10";
+    collection.articleId = self.article.Id;
+    collection.source = self.article.Source;
+    collection.articleDate = [TransDate TimeStamp:self.article.Date];
+    collection.thumb = self.article.Thumb;
     NSError *err = nil;
     if (self.collectionMOC.hasChanges) {
         [self.collectionMOC save:&err];
@@ -179,15 +186,11 @@
 //查询数据库，如果已经收藏显示 已收藏状态
 -(void)searchData{
     
-    // 建立获取数据的请求对象，指明操作的实体为Student
+    // 建立获取数据的请求对象，指明操作的实体为Collection
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Collection"];
     NSError *error = nil;
     
-    // 创建模糊查询条件。这里设置的带通配符的查询，查询条件是结果包含lxz
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"articleSource LIKE %@",@"*来源*"];
-    request.predicate = predicate;
-    
-    NSArray *collection = [self.collectionMOC executeRequest:request error:&error];
+
     NSString *filter = @"articleId = 1";
     [self readEntity:nil ascending:YES filterStr:filter success:^(NSArray *results) {
         for(NSManagedObject *obj in results){

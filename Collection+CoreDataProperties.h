@@ -2,7 +2,7 @@
 //  Collection+CoreDataProperties.h
 //  
 //
-//  Created by mrz on 2016/12/22.
+//  Created by mrz on 2016/12/27.
 //
 //  This file was automatically generated and should not be edited.
 //
@@ -16,9 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<Collection *> *)fetchRequest;
 
-@property (nonatomic) int16_t articleId;
-@property (nullable, nonatomic, copy) NSString *articleSource;
 @property (nullable, nonatomic, copy) NSString *articleDate;
+@property (nonatomic) int32_t articleId;
+@property (nullable, nonatomic, copy) NSString *source;
+@property (nullable, nonatomic, copy) NSString *title;
+@property (nullable, nonatomic, copy) NSString *thumb;
+@property (nonatomic) int32_t hits;
 
 @end
 

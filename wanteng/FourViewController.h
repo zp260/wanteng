@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NewsListCell.h"
+#import "CollectionTableViewController.h"
 
 @interface FourViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

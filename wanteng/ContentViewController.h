@@ -12,6 +12,7 @@
 #import "ImgSrcFix.h"
 #import <CoreData/CoreData.h>
 #import "Collection+CoreDataClass.h"
+#import "Article.h"
 
 @interface ContentViewController : UIViewController<UIGestureRecognizerDelegate,UIWebViewDelegate,NSFetchedResultsControllerDelegate>
 {
@@ -27,4 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *collectionBt;
 
 @property (strong,nonatomic) NSNumber* id;
+@property (strong,nonatomic) Article *article;
+
+-(instancetype)initWithArticle;
 @end

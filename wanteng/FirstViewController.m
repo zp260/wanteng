@@ -7,13 +7,16 @@
 //
 
 #import "FirstViewController.h"
+static NSString *const rootDomain = @"http://www.dtcqzf.gov.cn";//网站域名
+static NSString *const articleListPath = @"http://www.dtcqzf.gov.cn/mobile/article/list/";//取文章列表的path
+static int const pageCount = 20; //每页加载20个数据
 @interface FirstViewController ()
 
 @end
 
 @implementation FirstViewController
 @synthesize pageControl;
-static int pageCount = 20; //每页加载20个数据
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -54,7 +57,7 @@ static int pageCount = 20; //每页加载20个数据
 }
 #pragma 获取网络数据
 -(void)jsonGet:(int)siteid startpage:(int)startpage pagecount:(int)pagecount{
-    NSString* articleListUrl = [[NSString alloc]initWithFormat:@"%@%d/%d/%d",@"http://www.dtcqzf.gov.cn/mobile/article/list/",siteid,startpage,pagecount];
+    NSString* articleListUrl = [[NSString alloc]initWithFormat:@"%@%d/%d/%d",articleListPath,siteid,startpage,pagecount];
     NetWork *work = [[NetWork alloc]init];
     [work byGet:articleListUrl dic:parameter withBlock:^(NSArray *needArray, NSError *error) {
         [self.recipes addObjectsFromArray:needArray] ;
@@ -213,8 +216,14 @@ static int pageCount = 20; //每页加载20个数据
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if ( [_recipes count] > 0) {
         NSArray *data = [_recipes objectAtIndex:indexPath.row];
-        ContentViewController *contentView = [[ContentViewController alloc]init];
+        ContentViewController *contentView = [[ContentViewController alloc]initWithArticle];
+        
         contentView.id = [data valueForKey:@"id"];
+        contentView.article.Id      = [[data valueForKey:@"id"] intValue];
+        contentView.article.Title   = [data valueForKey:@"title"];
+        contentView.article.Thumb   = [NSString stringWithFormat:@"%@%@",rootDomain,[data valueForKey:@"thumb"]];//拼接缩略图具体的url
+        contentView.article.Source  = [data valueForKey:@"source"];
+        contentView.article.Time    = [data valueForKey:@"time"];
         self.parentViewController.hidesBottomBarWhenPushed = YES;
         [self.parentViewController.navigationController pushViewController:contentView animated:YES];
         self.parentViewController.hidesBottomBarWhenPushed = NO;

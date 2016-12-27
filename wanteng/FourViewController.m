@@ -64,6 +64,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
 }
+- (IBAction)showColletion:(id)sender {
+    CollectionTableViewController *colletion = [[CollectionTableViewController alloc]init];
+    [self.navigationController pushViewController:colletion animated:YES];
+}
 
 /*
 #pragma mark - Navigation

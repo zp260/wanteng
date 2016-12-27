@@ -12,7 +12,7 @@ static NSString * const entityName = @"Colletion";
 static NSString * const sqliteName = @"CollectionModel.sqlite";
 
 @interface CollectionCoreDataController()
-@property (nonatomic,strong) CoreDataAPI *CollectionData;
+@property (nonatomic,strong) CoreDataAPI *coreDataApi;
 @end
 
 @implementation CollectionCoreDataController
@@ -56,9 +56,9 @@ static CollectionCoreDataController *CollectionCoreData = nil;
     NSString *dataPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
     dataPath = [dataPath stringByAppendingFormat:@"/%@.sqlite",_coreDataModelName];
    // _coreDataSqlPath = [[[FileManager shardInstance] getDocumentPath] stringByAppendingPathComponent:sqliteName];
-    
     _coreDataSqlPath = dataPath;
-    self.CollectionData = [[CoreDataAPI alloc] initWithCoreData:self.coreDataEntityName modelName:self.coreDataModelName sqlPath:self.coreDataSqlPath success:^{
+    
+    self.coreDataApi = [[CoreDataAPI alloc] initWithCoreData:self.coreDataEntityName modelName:self.coreDataModelName sqlPath:self.coreDataSqlPath success:^{
         NSLog(@"initUploadCoreData success");
     } fail:^(NSError *error) {
         NSLog(@"initUploadCoreData fail");
@@ -68,12 +68,12 @@ static CollectionCoreDataController *CollectionCoreData = nil;
 #pragma mark - -- 插入记录
 - (void)insertModel:(Collection *)model success:(void(^)(void))success fail:(void(^)(NSError *error))fail
 {
-    NSString *articleSource = model.articleSource;
+    NSString *articleSource = model.source;
     NSInteger articleId = model.articleId;
     NSString *articleDate = model.articleDate;
     NSDictionary *dict = NSDictionaryOfVariableBindings(articleSource,articleId,articleDate);
     
-    [self.CollectionData insertNewEntity:dict success:^{
+    [self.coreDataApi insertNewEntity:dict success:^{
         if (success) {
             success();
         }
@@ -87,14 +87,14 @@ static CollectionCoreDataController *CollectionCoreData = nil;
 #pragma mark - -- 更新记录
 - (void)updateModel:(Collection *)model success:(void(^)(void))success fail:(void(^)(NSError *error))fail
 {
-    NSString *filterStr = [NSString stringWithFormat:@"articleId = %d AND articleSource = '%@' AND articleDate = '%@'",model.articleId,model.articleSource,model.articleDate];
-    [self.CollectionData readEntity:nil ascending:YES filterStr:filterStr success:^(NSArray *results) {
+    NSString *filterStr = [NSString stringWithFormat:@"articleId = %d AND articleSource = '%@' AND articleDate = '%@'",model.articleId,model.source,model.articleDate];
+    [self.coreDataApi readEntity:nil ascending:YES filterStr:filterStr success:^(NSArray *results) {
         if (results.count>0) {
             NSManagedObject *obj = [results firstObject];
             //更新数据
             //[obj setValue:[NSNumber numberWithBool:model.finishStatus] forKey:@"finishStatus"];
             //通知更新
-            [self.CollectionData updateEntity:^{
+            [self.coreDataApi updateEntity:^{
                 if (success) {
                     success();
                 }
@@ -115,10 +115,10 @@ static CollectionCoreDataController *CollectionCoreData = nil;
 - (void)deleteModel:(Collection *)model success:(void(^)(void))success fail:(void(^)(NSError *error))fail
 {
     NSString *filterStr = [NSString stringWithFormat:@"articleId = %d",model.articleId];
-    [self.CollectionData readEntity:nil ascending:YES filterStr:filterStr success:^(NSArray *results) {
+    [self.coreDataApi readEntity:nil ascending:YES filterStr:filterStr success:^(NSArray *results) {
         if (results.count>0) {
             NSManagedObject *obj = [results firstObject];
-            [self.CollectionData deleteEntity:obj success:^{
+            [self.coreDataApi deleteEntity:obj success:^{
                 if (success) {
                     success();
                 }
@@ -138,9 +138,9 @@ static CollectionCoreDataController *CollectionCoreData = nil;
 #pragma mark - -- 删除所有记录
 - (void)deleteAllModel:(void(^)(void))success fail:(void(^)(NSError *error))fail
 {
-    [self.CollectionData readEntity:nil ascending:YES filterStr:nil success:^(NSArray *results) {
+    [self.coreDataApi readEntity:nil ascending:YES filterStr:nil success:^(NSArray *results) {
         for (NSManagedObject *obj in results){
-            [self.CollectionData deleteEntity:obj success:^{
+            [self.coreDataApi deleteEntity:obj success:^{
                 if (success) {
                     success();
                 }
@@ -160,21 +160,20 @@ static CollectionCoreDataController *CollectionCoreData = nil;
 #pragma mark - -- 查询所有记录
 - (void)readAllModel:(void(^)(NSArray *finishArray))success fail:(void(^)(NSError *error))fail
 {
-    [self.CollectionData readEntity:nil ascending:YES filterStr:nil success:^(NSArray *results) {
+    [self.coreDataApi readEntity:nil ascending:YES filterStr:nil success:^(NSArray *results) {
         NSMutableArray *finishArray = [NSMutableArray array];
         NSMutableArray *unfinishedArray = [NSMutableArray array];
         for (NSManagedObject *obj in results) {
             Collection *model = [[Collection alloc] init];
             // 获取数据库中各个键值的值
-            model.articleId = (int16_t) [obj valueForKey:@"articleId"];
-            model.articleSource =[obj valueForKey:@"articleSource"];
+            model.articleId =  [[obj valueForKey:@"articleId"] intValue];
+            model.source =[obj valueForKey:@"source"];
             model.articleDate = [obj valueForKey:@"articleDate"];
             if (model.articleId) {
                 [finishArray addObject:model];
             } else {
                 [unfinishedArray addObject:model];
-            }
-            
+            }            
         }
         if (success) {
             success(finishArray);

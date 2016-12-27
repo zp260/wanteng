@@ -22,6 +22,7 @@
 		4A4CEE841E077BDD00D16D8E /* LeftTableViewControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CEE831E077BDD00D16D8E /* LeftTableViewControllerDelegate.m */; };
 		4A4CEE871E077E2E00D16D8E /* LeftTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CEE861E077E2E00D16D8E /* LeftTableViewController.m */; };
 		4A4CEE8A1E0787EA00D16D8E /* FirstMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CEE891E0787EA00D16D8E /* FirstMainViewController.m */; };
+		4A4E64DE1E1207F70062E563 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E64DD1E1207F70062E563 /* Article.m */; };
 		4A6BDE251DF1187200E69F11 /* NewsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6BDE231DF1187200E69F11 /* NewsListCell.m */; };
 		4A6BDE261DF1187200E69F11 /* NewsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6BDE241DF1187200E69F11 /* NewsListCell.xib */; };
 		4A6C23CD1DEE5EE200F61CD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C23CC1DEE5EE200F61CD0 /* main.m */; };
@@ -47,6 +48,8 @@
 		4AEE3C391E0BBD5800334A19 /* CollectionModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE3C371E0BBD5600334A19 /* CollectionModel.xcdatamodeld */; };
 		4AEE3C591E11F32200334A19 /* CoreDataAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE3C581E11F32200334A19 /* CoreDataAPI.m */; };
 		4AEE3C5C1E11F33400334A19 /* CollectionCoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE3C5B1E11F33400334A19 /* CollectionCoreDataController.m */; };
+		4AEE3C611E11FFCE00334A19 /* CollectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE3C5F1E11FFCE00334A19 /* CollectionTableViewController.m */; };
+		4AEE3C621E11FFCE00334A19 /* CollectionTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AEE3C601E11FFCE00334A19 /* CollectionTableViewController.xib */; };
 		EBDFB6BA839D519CA7D2AC2A /* libPods-wanteng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD270246228C5811B4F763BC /* libPods-wanteng.a */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +99,8 @@
 		4A4CEE861E077E2E00D16D8E /* LeftTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewController.m; sourceTree = "<group>"; };
 		4A4CEE881E0787EA00D16D8E /* FirstMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstMainViewController.h; sourceTree = "<group>"; };
 		4A4CEE891E0787EA00D16D8E /* FirstMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstMainViewController.m; sourceTree = "<group>"; };
+		4A4E64DC1E1207F70062E563 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
+		4A4E64DD1E1207F70062E563 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
 		4A6BDE221DF1187200E69F11 /* NewsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListCell.h; sourceTree = "<group>"; };
 		4A6BDE231DF1187200E69F11 /* NewsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListCell.m; sourceTree = "<group>"; };
 		4A6BDE241DF1187200E69F11 /* NewsListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsListCell.xib; sourceTree = "<group>"; };
@@ -143,6 +148,9 @@
 		4AEE3C581E11F32200334A19 /* CoreDataAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataAPI.m; path = wanteng/CoreDataAPI.m; sourceTree = "<group>"; };
 		4AEE3C5A1E11F33400334A19 /* CollectionCoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionCoreDataController.h; path = wanteng/CollectionCoreDataController.h; sourceTree = "<group>"; };
 		4AEE3C5B1E11F33400334A19 /* CollectionCoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionCoreDataController.m; path = wanteng/CollectionCoreDataController.m; sourceTree = "<group>"; };
+		4AEE3C5E1E11FFCE00334A19 /* CollectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionTableViewController.h; sourceTree = "<group>"; };
+		4AEE3C5F1E11FFCE00334A19 /* CollectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionTableViewController.m; sourceTree = "<group>"; };
+		4AEE3C601E11FFCE00334A19 /* CollectionTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionTableViewController.xib; sourceTree = "<group>"; };
 		656BA6E885A510F140C53C53 /* Pods-wanteng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wanteng.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wanteng/Pods-wanteng.debug.xcconfig"; sourceTree = "<group>"; };
 		CD270246228C5811B4F763BC /* libPods-wanteng.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wanteng.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB20D649B4B822A7BCF6750 /* Pods-wanteng.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wanteng.release.xcconfig"; path = "Pods/Target Support Files/Pods-wanteng/Pods-wanteng.release.xcconfig"; sourceTree = "<group>"; };
@@ -244,6 +252,8 @@
 		4A6C23CA1DEE5EE200F61CD0 /* wanteng */ = {
 			isa = PBXGroup;
 			children = (
+				4A4E64DC1E1207F70062E563 /* Article.h */,
+				4A4E64DD1E1207F70062E563 /* Article.m */,
 				4AEE3C371E0BBD5600334A19 /* CollectionModel.xcdatamodeld */,
 				4AE4B2541E08E31E0084A75F /* custom */,
 				4A4AB3B31DFFE21800743577 /* home */,
@@ -356,6 +366,7 @@
 		4AEE3C341E0A780500334A19 /* my */ = {
 			isa = PBXGroup;
 			children = (
+				4AEE3C5D1E11FF7C00334A19 /* myCollection */,
 				4AE78DAF1DFAAE21000D8738 /* FourViewController.h */,
 				4AE78DB01DFAAE21000D8738 /* FourViewController.m */,
 			);
@@ -407,6 +418,16 @@
 				4AEE3C451E0D233700334A19 /* CoreController */,
 			);
 			name = data;
+			sourceTree = "<group>";
+		};
+		4AEE3C5D1E11FF7C00334A19 /* myCollection */ = {
+			isa = PBXGroup;
+			children = (
+				4AEE3C5E1E11FFCE00334A19 /* CollectionTableViewController.h */,
+				4AEE3C5F1E11FFCE00334A19 /* CollectionTableViewController.m */,
+				4AEE3C601E11FFCE00334A19 /* CollectionTableViewController.xib */,
+			);
+			name = myCollection;
 			sourceTree = "<group>";
 		};
 		6FD12729C03F07F9148F5E98 /* Pods */ = {
@@ -529,6 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A6C23DE1DEE5EE200F61CD0 /* LaunchScreen.storyboard in Resources */,
+				4AEE3C621E11FFCE00334A19 /* CollectionTableViewController.xib in Resources */,
 				4A490E121DF693F200CF1E6A /* SecondCollectionViewCell.xib in Resources */,
 				4A6BDE261DF1187200E69F11 /* NewsListCell.xib in Resources */,
 				4A23DFF81DF5420200D57BC0 /* ContentViewController.xib in Resources */,
@@ -616,6 +638,7 @@
 				4A3553771E02227F0083C4F2 /* ImgSrcFix.m in Sources */,
 				4AEE3C5C1E11F33400334A19 /* CollectionCoreDataController.m in Sources */,
 				4A490E191DF8034B00CF1E6A /* SecondContentViewController.m in Sources */,
+				4A4E64DE1E1207F70062E563 /* Article.m in Sources */,
 				4A4CEE801E07795100D16D8E /* Column.m in Sources */,
 				4A4CEE8A1E0787EA00D16D8E /* FirstMainViewController.m in Sources */,
 				4A23DFFB1DF54FA100D57BC0 /* TransDate.m in Sources */,
@@ -632,6 +655,7 @@
 				4AE78DB41DFE4F4A000D8738 /* SGLoadMoreView.m in Sources */,
 				4A4CEE841E077BDD00D16D8E /* LeftTableViewControllerDelegate.m in Sources */,
 				4A6C23CD1DEE5EE200F61CD0 /* main.m in Sources */,
+				4AEE3C611E11FFCE00334A19 /* CollectionTableViewController.m in Sources */,
 				4A490E0D1DF6476800CF1E6A /* NetWork.m in Sources */,
 				4AE4B2571E08E35A0084A75F /* customUIButton.m in Sources */,
 				4A6C24181DEFC7D500F61CD0 /* UIImage+Extension.m in Sources */,
