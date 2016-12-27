@@ -43,6 +43,10 @@
 		4AE4B2621E0918540084A75F /* FourUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4B2611E0918540084A75F /* FourUIButton.m */; };
 		4AE78DB11DFAAE21000D8738 /* FourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE78DB01DFAAE21000D8738 /* FourViewController.m */; };
 		4AE78DB41DFE4F4A000D8738 /* SGLoadMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE78DB31DFE4F4A000D8738 /* SGLoadMoreView.m */; };
+		4AEE3C311E0A75B900334A19 /* CustmTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE3C301E0A75B900334A19 /* CustmTabBarController.m */; };
+		4AEE3C391E0BBD5800334A19 /* CollectionModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE3C371E0BBD5600334A19 /* CollectionModel.xcdatamodeld */; };
+		4AEE3C591E11F32200334A19 /* CoreDataAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE3C581E11F32200334A19 /* CoreDataAPI.m */; };
+		4AEE3C5C1E11F33400334A19 /* CollectionCoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE3C5B1E11F33400334A19 /* CollectionCoreDataController.m */; };
 		EBDFB6BA839D519CA7D2AC2A /* libPods-wanteng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD270246228C5811B4F763BC /* libPods-wanteng.a */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +136,13 @@
 		4AE78DB01DFAAE21000D8738 /* FourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourViewController.m; sourceTree = "<group>"; };
 		4AE78DB21DFE4F4A000D8738 /* SGLoadMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SGLoadMoreView.h; path = wanteng/SGLoadMoreView.h; sourceTree = "<group>"; };
 		4AE78DB31DFE4F4A000D8738 /* SGLoadMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SGLoadMoreView.m; path = wanteng/SGLoadMoreView.m; sourceTree = "<group>"; };
+		4AEE3C2F1E0A75B900334A19 /* CustmTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustmTabBarController.h; sourceTree = "<group>"; };
+		4AEE3C301E0A75B900334A19 /* CustmTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustmTabBarController.m; sourceTree = "<group>"; };
+		4AEE3C381E0BBD5700334A19 /* CollectionModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CollectionModel.xcdatamodel; sourceTree = "<group>"; };
+		4AEE3C571E11F32200334A19 /* CoreDataAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataAPI.h; path = wanteng/CoreDataAPI.h; sourceTree = "<group>"; };
+		4AEE3C581E11F32200334A19 /* CoreDataAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataAPI.m; path = wanteng/CoreDataAPI.m; sourceTree = "<group>"; };
+		4AEE3C5A1E11F33400334A19 /* CollectionCoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionCoreDataController.h; path = wanteng/CollectionCoreDataController.h; sourceTree = "<group>"; };
+		4AEE3C5B1E11F33400334A19 /* CollectionCoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionCoreDataController.m; path = wanteng/CollectionCoreDataController.m; sourceTree = "<group>"; };
 		656BA6E885A510F140C53C53 /* Pods-wanteng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wanteng.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wanteng/Pods-wanteng.debug.xcconfig"; sourceTree = "<group>"; };
 		CD270246228C5811B4F763BC /* libPods-wanteng.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wanteng.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB20D649B4B822A7BCF6750 /* Pods-wanteng.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wanteng.release.xcconfig"; path = "Pods/Target Support Files/Pods-wanteng/Pods-wanteng.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,21 +182,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4A4AB3B31DFFE21800743577 /* first */ = {
+		4A4AB3B31DFFE21800743577 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				4AE4B2541E08E31E0084A75F /* custom */,
 				4A6C23D11DEE5EE200F61CD0 /* FirstViewController.h */,
 				4A6C23D21DEE5EE200F61CD0 /* FirstViewController.m */,
 				4A4CEE881E0787EA00D16D8E /* FirstMainViewController.h */,
 				4A4CEE891E0787EA00D16D8E /* FirstMainViewController.m */,
 				4A4CEE811E077BAC00D16D8E /* leftView */,
 				4A4CEE7D1E07793200D16D8E /* Column */,
-				4A23DFF41DF5420200D57BC0 /* ContentViewController.h */,
-				4A23DFF51DF5420200D57BC0 /* ContentViewController.m */,
-				4A23DFF61DF5420200D57BC0 /* ContentViewController.xib */,
+				4AEE3C361E0B66D600334A19 /* content */,
 			);
-			name = first;
+			name = home;
 			sourceTree = "<group>";
 		};
 		4A4CEE7D1E07793200D16D8E /* Column */ = {
@@ -211,6 +219,7 @@
 		4A6C23BF1DEE5EE200F61CD0 = {
 			isa = PBXGroup;
 			children = (
+				4AEE3C461E0D233700334A19 /* data */,
 				4A6C240C1DEED75700F61CD0 /* loading1.gif */,
 				4A6C24081DEECCB700F61CD0 /* ext */,
 				4A6C23CA1DEE5EE200F61CD0 /* wanteng */,
@@ -235,18 +244,18 @@
 		4A6C23CA1DEE5EE200F61CD0 /* wanteng */ = {
 			isa = PBXGroup;
 			children = (
-				4A4AB3B31DFFE21800743577 /* first */,
-				4A7BE67D1DF90EF600FD826C /* second */,
+				4AEE3C371E0BBD5600334A19 /* CollectionModel.xcdatamodeld */,
+				4AE4B2541E08E31E0084A75F /* custom */,
+				4A4AB3B31DFFE21800743577 /* home */,
+				4A7BE67D1DF90EF600FD826C /* gov */,
+				4AEE3C321E0A77D500334A19 /* service */,
+				4AEE3C341E0A780500334A19 /* my */,
+				4A6C23DA1DEE5EE200F61CD0 /* Assets.xcassets */,
 				4A6C23CE1DEE5EE200F61CD0 /* AppDelegate.h */,
 				4A6C23CF1DEE5EE200F61CD0 /* AppDelegate.m */,
-				4A490E131DF7C1EA00CF1E6A /* ThirdViewController.h */,
-				4A490E141DF7C1EA00CF1E6A /* ThirdViewController.m */,
-				4A6C23DA1DEE5EE200F61CD0 /* Assets.xcassets */,
 				4A6C23DC1DEE5EE200F61CD0 /* LaunchScreen.storyboard */,
 				4A6C23DF1DEE5EE200F61CD0 /* Info.plist */,
 				4A6C23CB1DEE5EE200F61CD0 /* Supporting Files */,
-				4AE78DAF1DFAAE21000D8738 /* FourViewController.h */,
-				4AE78DB01DFAAE21000D8738 /* FourViewController.m */,
 				4A6C23D71DEE5EE200F61CD0 /* Main.storyboard */,
 			);
 			path = wanteng;
@@ -304,21 +313,19 @@
 			name = ext;
 			sourceTree = "<group>";
 		};
-		4A7BE67D1DF90EF600FD826C /* second */ = {
+		4A7BE67D1DF90EF600FD826C /* gov */ = {
 			isa = PBXGroup;
 			children = (
+				4AEE3C351E0B64C200334A19 /* content */,
 				4A6C23D41DEE5EE200F61CD0 /* SecondViewController.h */,
 				4A6C23D51DEE5EE200F61CD0 /* SecondViewController.m */,
 				4A490E0E1DF693F200CF1E6A /* SecondCollectionViewCell.h */,
 				4A490E0F1DF693F200CF1E6A /* SecondCollectionViewCell.m */,
 				4A490E101DF693F200CF1E6A /* SecondCollectionViewCell.xib */,
-				4A490E161DF8034B00CF1E6A /* SecondContentViewController.h */,
-				4A490E171DF8034B00CF1E6A /* SecondContentViewController.m */,
-				4A490E181DF8034B00CF1E6A /* SecondContentViewController.xib */,
 				4A7BE67E1DFA38C700FD826C /* SecondCollectionReusableView.h */,
 				4A7BE67F1DFA38C700FD826C /* SecondCollectionReusableView.m */,
 			);
-			name = second;
+			name = gov;
 			sourceTree = "<group>";
 		};
 		4AE4B2541E08E31E0084A75F /* custom */ = {
@@ -331,8 +338,75 @@
 				4AE4B2561E08E35A0084A75F /* customUIButton.m */,
 				4AE4B2601E0918540084A75F /* FourUIButton.h */,
 				4AE4B2611E0918540084A75F /* FourUIButton.m */,
+				4AEE3C2F1E0A75B900334A19 /* CustmTabBarController.h */,
+				4AEE3C301E0A75B900334A19 /* CustmTabBarController.m */,
 			);
 			name = custom;
+			sourceTree = "<group>";
+		};
+		4AEE3C321E0A77D500334A19 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				4A490E131DF7C1EA00CF1E6A /* ThirdViewController.h */,
+				4A490E141DF7C1EA00CF1E6A /* ThirdViewController.m */,
+			);
+			name = service;
+			sourceTree = "<group>";
+		};
+		4AEE3C341E0A780500334A19 /* my */ = {
+			isa = PBXGroup;
+			children = (
+				4AE78DAF1DFAAE21000D8738 /* FourViewController.h */,
+				4AE78DB01DFAAE21000D8738 /* FourViewController.m */,
+			);
+			name = my;
+			sourceTree = "<group>";
+		};
+		4AEE3C351E0B64C200334A19 /* content */ = {
+			isa = PBXGroup;
+			children = (
+				4A490E161DF8034B00CF1E6A /* SecondContentViewController.h */,
+				4A490E171DF8034B00CF1E6A /* SecondContentViewController.m */,
+				4A490E181DF8034B00CF1E6A /* SecondContentViewController.xib */,
+			);
+			name = content;
+			sourceTree = "<group>";
+		};
+		4AEE3C361E0B66D600334A19 /* content */ = {
+			isa = PBXGroup;
+			children = (
+				4A23DFF41DF5420200D57BC0 /* ContentViewController.h */,
+				4A23DFF51DF5420200D57BC0 /* ContentViewController.m */,
+				4A23DFF61DF5420200D57BC0 /* ContentViewController.xib */,
+			);
+			name = content;
+			sourceTree = "<group>";
+		};
+		4AEE3C421E0D233700334A19 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4AEE3C571E11F32200334A19 /* CoreDataAPI.h */,
+				4AEE3C581E11F32200334A19 /* CoreDataAPI.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		4AEE3C451E0D233700334A19 /* CoreController */ = {
+			isa = PBXGroup;
+			children = (
+				4AEE3C5A1E11F33400334A19 /* CollectionCoreDataController.h */,
+				4AEE3C5B1E11F33400334A19 /* CollectionCoreDataController.m */,
+			);
+			name = CoreController;
+			sourceTree = "<group>";
+		};
+		4AEE3C461E0D233700334A19 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				4AEE3C421E0D233700334A19 /* API */,
+				4AEE3C451E0D233700334A19 /* CoreController */,
+			);
+			name = data;
 			sourceTree = "<group>";
 		};
 		6FD12729C03F07F9148F5E98 /* Pods */ = {
@@ -540,6 +614,7 @@
 				4A490E111DF693F200CF1E6A /* SecondCollectionViewCell.m in Sources */,
 				4A6C23D01DEE5EE200F61CD0 /* AppDelegate.m in Sources */,
 				4A3553771E02227F0083C4F2 /* ImgSrcFix.m in Sources */,
+				4AEE3C5C1E11F33400334A19 /* CollectionCoreDataController.m in Sources */,
 				4A490E191DF8034B00CF1E6A /* SecondContentViewController.m in Sources */,
 				4A4CEE801E07795100D16D8E /* Column.m in Sources */,
 				4A4CEE8A1E0787EA00D16D8E /* FirstMainViewController.m in Sources */,
@@ -547,8 +622,10 @@
 				4A490E151DF7C1EA00CF1E6A /* ThirdViewController.m in Sources */,
 				4AE4B2621E0918540084A75F /* FourUIButton.m in Sources */,
 				4A6C23D31DEE5EE200F61CD0 /* FirstViewController.m in Sources */,
+				4AEE3C391E0BBD5800334A19 /* CollectionModel.xcdatamodeld in Sources */,
 				4A6C240B1DEECCD700F61CD0 /* LoadingImageview.m in Sources */,
 				4A23DFF71DF5420200D57BC0 /* ContentViewController.m in Sources */,
+				4AEE3C311E0A75B900334A19 /* CustmTabBarController.m in Sources */,
 				4AE78DB11DFAAE21000D8738 /* FourViewController.m in Sources */,
 				4A4CEE7C1E03E51C00D16D8E /* TLWindow.m in Sources */,
 				4A6C24171DEFC7D500F61CD0 /* UIFont+Extension.m in Sources */,
@@ -560,6 +637,7 @@
 				4A6C24181DEFC7D500F61CD0 /* UIImage+Extension.m in Sources */,
 				4A7BE6801DFA38C700FD826C /* SecondCollectionReusableView.m in Sources */,
 				4A4CEE871E077E2E00D16D8E /* LeftTableViewController.m in Sources */,
+				4AEE3C591E11F32200334A19 /* CoreDataAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,6 +898,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4AEE3C371E0BBD5600334A19 /* CollectionModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4AEE3C381E0BBD5700334A19 /* CollectionModel.xcdatamodel */,
+			);
+			currentVersion = 4AEE3C381E0BBD5700334A19 /* CollectionModel.xcdatamodel */;
+			path = CollectionModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4A6C23C01DEE5EE200F61CD0 /* Project object */;
 }

@@ -21,6 +21,7 @@
     [self loadWeather];
     [_collectionView registerNib:[UINib nibWithNibName:@"SecondCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"coustmCell"];
 }
+
 -(void)initData{
     _cellTitleArray = [[NSArray alloc]initWithObjects:@"万年历",@"身份信息",@"快递查询",@"微信精选",@"号码归属地",@"汇率查询",@"历史今天",@"星座运势",@"公交查询", nil];
 }

@@ -79,7 +79,7 @@
         if (!error) {
             NSArray *contentArray =  needArray;
             NSString *html = [[contentArray objectAtIndex:0] valueForKey:@"content"];
-            html = [ImgSrcFix fixedImageSrcHtml:html];
+            html = [ImgSrcFix fixedImageSrcHtml:html withImgWidth:self.webview.width];
             [_webview loadHTMLString:html baseURL:nil];
             HUD.removeFromSuperViewOnHide = YES;
             [HUD hideAnimated:YES afterDelay:0];

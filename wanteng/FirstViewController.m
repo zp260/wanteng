@@ -17,7 +17,6 @@ static int pageCount = 20; //每页加载20个数据
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
     //初始化抽屉参数
     _isShow = NO;
     
@@ -216,7 +215,10 @@ static int pageCount = 20; //每页加载20个数据
         NSArray *data = [_recipes objectAtIndex:indexPath.row];
         ContentViewController *contentView = [[ContentViewController alloc]init];
         contentView.id = [data valueForKey:@"id"];
-        [self.navigationController pushViewController:contentView animated:YES];
+        self.parentViewController.hidesBottomBarWhenPushed = YES;
+        [self.parentViewController.navigationController pushViewController:contentView animated:YES];
+        self.parentViewController.hidesBottomBarWhenPushed = NO;
+        
     }
    
 }

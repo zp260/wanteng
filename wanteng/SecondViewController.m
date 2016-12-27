@@ -7,6 +7,7 @@
 //
 
 #import "SecondViewController.h"
+#import "ThirdViewController.h"
 NSInteger const cellHight = 80;
 NSInteger const cellWidth = 110;
 
@@ -34,7 +35,10 @@ NSInteger const cellWidth = 110;
 }
 -(void)viewDidLayoutSubviews{
     [self initFrame];
+    
 }
+
+
 -(void)jsonGet{
     for (int i=0; i<classArray.count; i++) {
         NetWork *network = [[NetWork alloc]init];
@@ -140,21 +144,8 @@ NSInteger const cellWidth = 110;
     CGSize size={kDeviceWidth,20};
     return size;
 }
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    
-    UICollectionReusableView *reusableview = nil;
-    if (kind == UICollectionElementKindSectionHeader) {
-        SecondCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-        if (SectionDic.count>0) {
-            NSInteger sec = indexPath.section;
-            headerView.backgroundImg.backgroundColor = [UIColor grayColor];
-            headerView.title.text = [sectionTitleArray objectAtIndex:sec];
-        }
-        
-        reusableview = headerView;
-    }
-    
-    return reusableview;
-}
+
+
+
 
 @end

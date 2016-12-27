@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface ImgSrcFix : NSObject
-+(NSString *)fixedImageSrcHtml:(NSString*)html;
++(NSString *)fixedImageSrcHtml:(NSString*)html withImgWidth:(CGFloat)width;
 @end

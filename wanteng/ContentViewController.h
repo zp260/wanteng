@@ -10,14 +10,21 @@
 #import "AFNetworking/AFNetworking.h"
 #import "TransDate.h"
 #import "ImgSrcFix.h"
-@interface ContentViewController : UIViewController<UIGestureRecognizerDelegate>
+#import <CoreData/CoreData.h>
+#import "Collection+CoreDataClass.h"
+
+@interface ContentViewController : UIViewController<UIGestureRecognizerDelegate,UIWebViewDelegate,NSFetchedResultsControllerDelegate>
 {
     NSArray *contentArray;
+    NSInteger fontSizeChangeTimes;
 }
+@property (weak, nonatomic) IBOutlet UIView *titleView;
 @property (weak, nonatomic) IBOutlet UILabel *contenTitle;
 @property (weak, nonatomic) IBOutlet UILabel *date_source;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipRight;
+
+@property (weak, nonatomic) IBOutlet UIButton *collectionBt;
 
 @property (strong,nonatomic) NSNumber* id;
 @end

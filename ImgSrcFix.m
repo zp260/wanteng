@@ -18,7 +18,7 @@
  @param html 原来的html源码
  @return return value 修改好的url的源码 src带全域名的
  */
-+(NSString *)fixedImageSrcHtml:(NSString*)html{
++(NSString *)fixedImageSrcHtml:(NSString*)html withImgWidth:(CGFloat)width{
     
     NSRegularExpression *imgRegex = [NSRegularExpression regularExpressionWithPattern:@"<img\\ssrc[^>]*/>" options:NSRegularExpressionAllowCommentsAndWhitespace error:nil];
     NSArray *imgResult = [imgRegex matchesInString:html options:NSMatchingReportCompletion range:NSMakeRange(0, html.length)];
@@ -51,10 +51,13 @@
         NSString *localPath = [urlDicts objectForKey:src];
         html = [html stringByReplacingOccurrencesOfString:src withString:localPath];
         
-        //修改图片大小
+        
     }
     
+    //修改图片大小
+    NSString *css = [NSString stringWithFormat:@"%@%f%@",@"<style type=\"text/css\">img{width:",300.0f,@"px;}</style>"];
     NSLog(@"源代码为:\n%@",html);
+    html = [NSString stringWithFormat:@"%@%@",html,css];
     return html;
 }
 
