@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CoreDataAPI.h"
-#import "Collection+CoreDataClass.h"
+
 
 @class Collection;
 @interface CollectionCoreDataController : NSObject

@@ -53,7 +53,7 @@
  *  @param success      成功后结果回调
  *  @param fail         失败回调
  */
-- (void)readEntity:(NSArray *)sequenceKeys ascending:(BOOL)isAscending filterStr:(NSString *)filterStr success:(void(^)(NSArray *results))success fail:(void(^)(NSError *error))fail;
+- (void)readEntity:(NSArray *)sequenceKeys ascending:(BOOL)isAscending filterStr:(NSString *)filterStr success:(void(^)(NSArray *results,NSEntityDescription *entity,NSManagedObjectContext *context))success fail:(void(^)(NSError *error))fail;
 
 /**
  *  删除数据

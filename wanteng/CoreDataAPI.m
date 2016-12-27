@@ -59,8 +59,8 @@
         _entityName = entityName;
         _modelName = modelName;
         _sqlPath = sqlPath;
-        // 初始化上下文
-        self.context = [[NSManagedObjectContext alloc] init];
+       // 创建上下文对象，并发队列设置为主队列
+        self.context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         if (modelName) {
             //获取模型路径
             NSURL *modelURL = [[NSBundle mainBundle] URLForResource:modelName withExtension:@"momd"];
@@ -128,7 +128,7 @@
 }
 
 // 查询数据
-- (void)readEntity:(NSArray *)sequenceKeys ascending:(BOOL)isAscending filterStr:(NSString *)filterStr success:(void(^)(NSArray *results))success fail:(void(^)(NSError *error))fail
+- (void)readEntity:(NSArray *)sequenceKeys ascending:(BOOL)isAscending filterStr:(NSString *)filterStr success:(void(^)(NSArray *results,NSEntityDescription *entity,NSManagedObjectContext *context))success fail:(void(^)(NSError *error))fail
 {
     // 1.初始化一个查询请求
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -165,7 +165,7 @@
         }
     } else{
         if (success) {
-            success(objs);
+            success(objs,desc,self.context);
         }
     }
 }

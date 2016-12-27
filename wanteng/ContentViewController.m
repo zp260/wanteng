@@ -156,9 +156,10 @@
     // 创建并关联SQLite数据库文件，如果已经存在则不会重复创建
     NSString *dataPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
     dataPath = [dataPath stringByAppendingFormat:@"/%@.sqlite",modelName];
-    [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:dataPath] options:nil error:nil];
+    
     
     // 上下文对象设置属性为持久化存储器
+    [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:dataPath] options:nil error:nil];
     context.persistentStoreCoordinator = coordinator;
     return context;
 }
@@ -192,9 +193,9 @@
     
 
     NSString *filter = @"articleId = 1";
-    [self readEntity:nil ascending:YES filterStr:filter success:^(NSArray *results) {
+    [self readEntity:nil ascending:YES filterStr:nil success:^(NSArray *results) {
         for(NSManagedObject *obj in results){
-            NSLog(@"%@",[obj valueForKey:@"articleSource"]);
+            NSLog(@"%@",[obj valueForKey:@"source"]);
         }
         if (results.count>0) {
             NSManagedObject *obj = [results firstObject];

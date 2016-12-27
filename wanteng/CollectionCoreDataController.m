@@ -7,8 +7,9 @@
 //
 
 #import "CollectionCoreDataController.h"
-static NSString * const modelName = @"CollectionModel";
-static NSString * const entityName = @"Colletion";
+#import "Collection+CoreDataClass.h"
+static NSString * const modelName  = @"CollectionModel";
+static NSString * const entityName = @"Collection";
 static NSString * const sqliteName = @"CollectionModel.sqlite";
 
 @interface CollectionCoreDataController()
@@ -59,9 +60,9 @@ static CollectionCoreDataController *CollectionCoreData = nil;
     _coreDataSqlPath = dataPath;
     
     self.coreDataApi = [[CoreDataAPI alloc] initWithCoreData:self.coreDataEntityName modelName:self.coreDataModelName sqlPath:self.coreDataSqlPath success:^{
-        NSLog(@"initUploadCoreData success");
+        NSLog(@"initCoreData success");
     } fail:^(NSError *error) {
-        NSLog(@"initUploadCoreData fail");
+        NSLog(@"initCoreData fail");
     }];
     
 }
@@ -88,7 +89,7 @@ static CollectionCoreDataController *CollectionCoreData = nil;
 - (void)updateModel:(Collection *)model success:(void(^)(void))success fail:(void(^)(NSError *error))fail
 {
     NSString *filterStr = [NSString stringWithFormat:@"articleId = %d AND articleSource = '%@' AND articleDate = '%@'",model.articleId,model.source,model.articleDate];
-    [self.coreDataApi readEntity:nil ascending:YES filterStr:filterStr success:^(NSArray *results) {
+    [self.coreDataApi readEntity:nil ascending:YES filterStr:filterStr success:^(NSArray *results,NSEntityDescription *entity,NSManagedObjectContext *context) {
         if (results.count>0) {
             NSManagedObject *obj = [results firstObject];
             //更新数据
@@ -115,7 +116,7 @@ static CollectionCoreDataController *CollectionCoreData = nil;
 - (void)deleteModel:(Collection *)model success:(void(^)(void))success fail:(void(^)(NSError *error))fail
 {
     NSString *filterStr = [NSString stringWithFormat:@"articleId = %d",model.articleId];
-    [self.coreDataApi readEntity:nil ascending:YES filterStr:filterStr success:^(NSArray *results) {
+    [self.coreDataApi readEntity:nil ascending:YES filterStr:filterStr success:^(NSArray *results,NSEntityDescription *entity,NSManagedObjectContext *context) {
         if (results.count>0) {
             NSManagedObject *obj = [results firstObject];
             [self.coreDataApi deleteEntity:obj success:^{
@@ -138,7 +139,7 @@ static CollectionCoreDataController *CollectionCoreData = nil;
 #pragma mark - -- 删除所有记录
 - (void)deleteAllModel:(void(^)(void))success fail:(void(^)(NSError *error))fail
 {
-    [self.coreDataApi readEntity:nil ascending:YES filterStr:nil success:^(NSArray *results) {
+    [self.coreDataApi readEntity:nil ascending:YES filterStr:nil success:^(NSArray *results,NSEntityDescription *entity,NSManagedObjectContext *context) {
         for (NSManagedObject *obj in results){
             [self.coreDataApi deleteEntity:obj success:^{
                 if (success) {
@@ -160,28 +161,33 @@ static CollectionCoreDataController *CollectionCoreData = nil;
 #pragma mark - -- 查询所有记录
 - (void)readAllModel:(void(^)(NSArray *finishArray))success fail:(void(^)(NSError *error))fail
 {
-    [self.coreDataApi readEntity:nil ascending:YES filterStr:nil success:^(NSArray *results) {
-        NSMutableArray *finishArray = [NSMutableArray array];
-        NSMutableArray *unfinishedArray = [NSMutableArray array];
-        for (NSManagedObject *obj in results) {
-            Collection *model = [[Collection alloc] init];
-            // 获取数据库中各个键值的值
-            model.articleId =  [[obj valueForKey:@"articleId"] intValue];
-            model.source =[obj valueForKey:@"source"];
-            model.articleDate = [obj valueForKey:@"articleDate"];
-            if (model.articleId) {
-                [finishArray addObject:model];
-            } else {
-                [unfinishedArray addObject:model];
-            }            
-        }
+    [self.coreDataApi readEntity:nil ascending:YES filterStr:nil success:^(NSArray *results,NSEntityDescription *entity,NSManagedObjectContext *context) {
+        if(results.count>0){
+            NSMutableArray *finishArray = [NSMutableArray array];
+            for (NSManagedObject *obj in results) {
+                
+                Collection *model = [[Collection alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+                // 获取数据库中各个键值的值
+                model.source    =   [obj valueForKey:@"source"];
+                model.articleDate = [obj valueForKey:@"articleDate"];
+                model.articleId =   [[obj valueForKey:@"articleId"]intValue];
+                
+                if (model.articleId) {
+                    [finishArray addObject:model];
+                } else {
+                
+                }
+            }
+        
         if (success) {
             success(finishArray);
         }
+            }
     } fail:^(NSError *error) {
         if (fail) {
             fail(error);
         }
+        
     }];
 }
 @end
