@@ -8,12 +8,13 @@
 
 #import "CollectionCoreDataController.h"
 #import "Collection+CoreDataClass.h"
+
 static NSString * const modelName  = @"CollectionModel";
 static NSString * const entityName = @"Collection";
 static NSString * const sqliteName = @"CollectionModel.sqlite";
 
 @interface CollectionCoreDataController()
-@property (nonatomic,strong) CoreDataAPI *coreDataApi;
+
 @end
 
 @implementation CollectionCoreDataController
@@ -67,12 +68,13 @@ static CollectionCoreDataController *CollectionCoreData = nil;
     
 }
 #pragma mark - -- 插入记录
-- (void)insertModel:(Collection *)model success:(void(^)(void))success fail:(void(^)(NSError *error))fail
+- (void)insertModel:(Article *)model success:(void(^)(void))success fail:(void(^)(NSError *error))fail
 {
-    NSString *articleSource = model.source;
-    NSInteger articleId = model.articleId;
-    NSString *articleDate = model.articleDate;
-    NSDictionary *dict = NSDictionaryOfVariableBindings(articleSource,articleId,articleDate);
+    NSLog(@"%@",model);
+    NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:[NSNumber numberWithInt:model.Id],@"articleId",model.Title,@"title",model.Source,@"source",model.Thumb,@"thumb",[NSNumber numberWithInt:model.Hits],@"hits",model.Date,@"articleDate", nil];
+
+    //NSDictionary *dict = NSDictionaryOfVariableBindings(source,articleId,articleDate,thumb,hits,title);
+
     
     [self.coreDataApi insertNewEntity:dict success:^{
         if (success) {
@@ -112,7 +114,7 @@ static CollectionCoreDataController *CollectionCoreData = nil;
     }];
 }
 
-#pragma mark - -- 删除一条记录
+#pragma mark - -- 删除指定条件记录
 - (void)deleteModel:(Collection *)model success:(void(^)(void))success fail:(void(^)(NSError *error))fail
 {
     NSString *filterStr = [NSString stringWithFormat:@"articleId = %d",model.articleId];
@@ -159,23 +161,24 @@ static CollectionCoreDataController *CollectionCoreData = nil;
 }
 
 #pragma mark - -- 查询所有记录
-- (void)readAllModel:(void(^)(NSArray *finishArray))success fail:(void(^)(NSError *error))fail
+- (void)readAllModel:(NSString *)filter success:(void(^)(NSArray *finishArray))success fail:(void(^)(NSError *error))fail
 {
-    [self.coreDataApi readEntity:nil ascending:YES filterStr:nil success:^(NSArray *results,NSEntityDescription *entity,NSManagedObjectContext *context) {
+    [self.coreDataApi readEntity:nil ascending:YES filterStr:filter success:^(NSArray *results,NSEntityDescription *entity,NSManagedObjectContext *context) {
         if(results.count>0){
             NSMutableArray *finishArray = [NSMutableArray array];
             for (NSManagedObject *obj in results) {
                 
                 Collection *model = [[Collection alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
                 // 获取数据库中各个键值的值
-                model.source    =   [obj valueForKey:@"source"];
+                model.source      = [obj valueForKey:@"source"];
                 model.articleDate = [obj valueForKey:@"articleDate"];
-                model.articleId =   [[obj valueForKey:@"articleId"]intValue];
-                
+                model.articleId   = [[obj valueForKey:@"articleId"]intValue];
+                model.thumb       = [obj valueForKey:@"thumb"];
+                model.title       = [obj valueForKey:@"title"];
+                model.hits        = [[obj valueForKey:@"hits"]intValue];
+                NSLog(@"取到的Model%@",model);
                 if (model.articleId) {
                     [finishArray addObject:model];
-                } else {
-                
                 }
             }
         
@@ -189,5 +192,4 @@ static CollectionCoreDataController *CollectionCoreData = nil;
         }
         
     }];
-}
-@end
+}@end

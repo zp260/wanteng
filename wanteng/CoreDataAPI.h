@@ -23,6 +23,19 @@
 @property (nonatomic,copy,readonly) NSString *entityName;
 
 /**
+ *  数据模型对象
+ */
+@property (nonatomic,strong) NSManagedObjectModel *model;
+/**
+ *  上下文
+ */
+@property (nonatomic,strong) NSManagedObjectContext *context;
+/**
+ *  持久性存储区
+ */
+@property (nonatomic,strong) NSPersistentStoreCoordinator *persistent;
+
+/**
  *  创建CoreData数据库
  *
  *  @param entityName 实体名称

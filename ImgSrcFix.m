@@ -37,7 +37,7 @@
             NSInteger loc = [src rangeOfString:@"\""].location;
             if (loc!=NSNotFound) {
                 src = [src substringToIndex:loc];
-                NSLog(@"正确解析出来的src为:%@",src);
+                //NSLog(@"正确解析出来的src为:%@",src);
                 if (src.length>0) {
                     NSString *localPath =[NSString stringWithFormat:@"%@%@",@"http://www.dtcqzf.gov.cn",src];
                     [urlDicts setObject:localPath forKey:src];
@@ -56,7 +56,7 @@
     
     //修改图片大小
     NSString *css = [NSString stringWithFormat:@"%@%f%@",@"<style type=\"text/css\">img{width:",300.0f,@"px;}</style>"];
-    NSLog(@"源代码为:\n%@",html);
+    //NSLog(@"源代码为:\n%@",html);
     html = [NSString stringWithFormat:@"%@%@",html,css];
     return html;
 }

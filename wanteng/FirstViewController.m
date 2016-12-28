@@ -218,12 +218,13 @@ static int const pageCount = 20; //每页加载20个数据
         NSArray *data = [_recipes objectAtIndex:indexPath.row];
         ContentViewController *contentView = [[ContentViewController alloc]initWithArticle];
         
-        contentView.id = [data valueForKey:@"id"];
         contentView.article.Id      = [[data valueForKey:@"id"] intValue];
         contentView.article.Title   = [data valueForKey:@"title"];
         contentView.article.Thumb   = [NSString stringWithFormat:@"%@%@",rootDomain,[data valueForKey:@"thumb"]];//拼接缩略图具体的url
         contentView.article.Source  = [data valueForKey:@"source"];
-        contentView.article.Time    = [data valueForKey:@"time"];
+        contentView.article.Date    = [TransDate TimeStamp:[[data valueForKey:@"time"]stringValue]];
+        contentView.article.Hits    = [[data valueForKey:@"hits"]intValue];
+        
         self.parentViewController.hidesBottomBarWhenPushed = YES;
         [self.parentViewController.navigationController pushViewController:contentView animated:YES];
         self.parentViewController.hidesBottomBarWhenPushed = NO;
@@ -357,7 +358,7 @@ static int const pageCount = 20; //每页加载20个数据
 
 - (IBAction)histotyClick:(id)sender {
     ContentViewController *content = [[ContentViewController alloc]init];
-    content.id =[NSNumber numberWithInteger:29310];
+    content.article.Id =29310;
     [self.navigationController pushViewController:content animated:YES];
     
 }

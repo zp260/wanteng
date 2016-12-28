@@ -16,11 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    recepts = [NSArray array];
    CollectionCoreDataController *collection= [[CollectionCoreDataController sharedInstance]init];
     
-    [collection readAllModel:^(NSArray *finishArray) {
+    [collection readAllModel:nil success:^(NSArray *finishArray) {
         recepts = finishArray;
+        NSLog(@"%@",recepts);
+        [self.tableView reloadData];
     } fail:^(NSError *error) {
         NSLog(@"%@",error);
     }];
@@ -47,12 +49,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return recepts.count;
 }
 
 
@@ -65,17 +67,13 @@
     
     if ( [recepts count] > 0) {
         NSArray *data = [recepts objectAtIndex:indexPath.row];
-        
-        NSString *imagUrl = [[NSString alloc] initWithFormat:@"%@%@",SiteUrl,[data valueForKey:@"thumb"]];
+        NSLog(@"%@",data);
+        NSString *imagUrl = [data valueForKey:@"thumb"];
         [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:imagUrl] placeholderImage:_lodingIMG];
         
         cell.title.text = [data valueForKey:@"title"];
         cell.source.text = [data valueForKey:@"source"];
-        
-        NSString *time = [[data valueForKey:@"time"] stringValue];
-        
-        NSString *timeStr =  [TransDate TimeStamp:time];
-        cell.date.text = timeStr;
+        cell.date.text = [data valueForKey:@"articleDate"];
     }
     // Configure the cell...
     

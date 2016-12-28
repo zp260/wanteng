@@ -34,18 +34,7 @@
 #import "CoreDataAPI.h"
 
 @interface CoreDataAPI()
-/**
- *  数据模型对象
- */
-@property (nonatomic,strong) NSManagedObjectModel *model;
-/**
- *  上下文
- */
-@property (nonatomic,strong) NSManagedObjectContext *context;
-/**
- *  持久性存储区
- */
-@property (nonatomic,strong) NSPersistentStoreCoordinator *persistent;
+
 @end
 
 @implementation CoreDataAPI
@@ -110,6 +99,7 @@
     // 实体对象存储属性值（相当于数据库中将一个值存入对应字段)
     for (NSString *key in [dict allKeys]) {
         [newEntity setValue:[dict objectForKey:key] forKey:key];
+        NSLog(@"%@",newEntity);
     }
     // 保存信息，同步数据
     NSError *error = nil;

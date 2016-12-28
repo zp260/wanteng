@@ -13,11 +13,13 @@
 #import <CoreData/CoreData.h>
 #import "Collection+CoreDataClass.h"
 #import "Article.h"
+#import "CollectionCoreDataController.h"
 
 @interface ContentViewController : UIViewController<UIGestureRecognizerDelegate,UIWebViewDelegate,NSFetchedResultsControllerDelegate>
 {
     NSArray *contentArray;
     NSInteger fontSizeChangeTimes;
+    BOOL colletionState; //是否已经收藏
 }
 @property (weak, nonatomic) IBOutlet UIView *titleView;
 @property (weak, nonatomic) IBOutlet UILabel *contenTitle;
@@ -27,7 +29,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *collectionBt;
 
-@property (strong,nonatomic) NSNumber* id;
 @property (strong,nonatomic) Article *article;
 
 -(instancetype)initWithArticle;
