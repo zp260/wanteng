@@ -12,10 +12,11 @@
 #import "SDwebImage.h"
 #import "LoadingImageview.h"
 #import "TransDate.h"
+#import "ContentViewController.h"
 
-@interface CollectionTableViewController : UITableViewController
+@interface CollectionTableViewController : UITableViewController <UITableViewDelegate,UITableViewDataSource>
 {
-    NSArray *recepts;
+    
 }
 
 @property (nonatomic,retain) UIImage * _Nonnull lodingIMG;

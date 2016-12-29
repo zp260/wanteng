@@ -7,7 +7,7 @@
 //
 
 #import "FirstViewController.h"
-static NSString *const rootDomain = @"http://www.dtcqzf.gov.cn";//网站域名
+
 static NSString *const articleListPath = @"http://www.dtcqzf.gov.cn/mobile/article/list/";//取文章列表的path
 static int const pageCount = 20; //每页加载20个数据
 @interface FirstViewController ()
@@ -220,7 +220,7 @@ static int const pageCount = 20; //每页加载20个数据
         
         contentView.article.Id      = [[data valueForKey:@"id"] intValue];
         contentView.article.Title   = [data valueForKey:@"title"];
-        contentView.article.Thumb   = [NSString stringWithFormat:@"%@%@",rootDomain,[data valueForKey:@"thumb"]];//拼接缩略图具体的url
+        contentView.article.Thumb   = [NSString stringWithFormat:@"%@%@",SiteUrl,[data valueForKey:@"thumb"]];//拼接缩略图具体的url
         contentView.article.Source  = [data valueForKey:@"source"];
         contentView.article.Date    = [TransDate TimeStamp:[[data valueForKey:@"time"]stringValue]];
         contentView.article.Hits    = [[data valueForKey:@"hits"]intValue];

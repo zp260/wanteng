@@ -9,23 +9,14 @@
 #import "CollectionTableViewController.h"
 
 @interface CollectionTableViewController ()
-
+@property (strong,nonatomic) NSArray *recepts;
 @end
 
 @implementation CollectionTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    recepts = [NSArray array];
-   CollectionCoreDataController *collection= [[CollectionCoreDataController sharedInstance]init];
-    
-    [collection readAllModel:nil success:^(NSArray *finishArray) {
-        recepts = finishArray;
-        NSLog(@"%@",recepts);
-        [self.tableView reloadData];
-    } fail:^(NSError *error) {
-        NSLog(@"%@",error);
-    }];
+    _recepts = [NSArray array];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"NewsListCell" bundle:nil] forCellReuseIdentifier:@"newsListCell"];
     
@@ -39,7 +30,17 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+-(void)viewDidAppear:(BOOL)animated{
+    CollectionCoreDataController *collection= [[CollectionCoreDataController sharedInstance]init];
+    
+    [collection readAllModel:nil success:^(NSArray *finishArray) {
+        _recepts = finishArray;
+        [self.tableView reloadData];
+    } fail:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
 
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -54,7 +55,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return recepts.count;
+    return _recepts.count;
 }
 
 
@@ -65,8 +66,8 @@
         cell = (NewsListCell *)[tableView dequeueReusableCellWithIdentifier:@"newsListCell"];
     }
     
-    if ( [recepts count] > 0) {
-        NSArray *data = [recepts objectAtIndex:indexPath.row];
+    if ( [_recepts count] > 0) {
+        NSArray *data = [_recepts objectAtIndex:indexPath.row];
         NSLog(@"%@",data);
         NSString *imagUrl = [data valueForKey:@"thumb"];
         [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:imagUrl] placeholderImage:_lodingIMG];
@@ -115,21 +116,38 @@
 }
 */
 
-/*
+
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    if ( [_recepts count] > 0) {
+        Collection *data = [_recepts objectAtIndex:indexPath.row];//此处的data为clollection对象
+        NSLog(@"%@",_recepts);
+        ContentViewController *contentView = [[ContentViewController alloc]initWithArticle];
+        contentView.article.Id      = [[data valueForKey:@"articleId"] intValue];
+        contentView.article.Title   = [data valueForKey:@"title"];
+        contentView.article.Thumb   = [data valueForKey:@"thumb"];//拼接缩略图具体的url
+        contentView.article.Source  = [data valueForKey:@"source"];
+        contentView.article.Date    = [data valueForKey:@"articleDate"];
+        contentView.article.Hits    = [[data valueForKey:@"hits"]intValue];
+        
+        self.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:contentView animated:YES];
+        self.hidesBottomBarWhenPushed = NO;
+        
+    }
+
+    
     
     // Pass the selected object to the new view controller.
     
     // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    
 }
-*/
+
 
 /*
 #pragma mark - Navigation
