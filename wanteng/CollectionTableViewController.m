@@ -9,20 +9,21 @@
 #import "CollectionTableViewController.h"
 
 @interface CollectionTableViewController ()
-@property (strong,nonatomic) NSArray *recepts;
+@property (strong,nonatomic) NSMutableArray *articleArray;
 @end
 
 @implementation CollectionTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _recepts = [NSArray array];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"NewsListCell" bundle:nil] forCellReuseIdentifier:@"newsListCell"];
     
     //初始化loading动画图片
     LoadingImageview *loading = [[LoadingImageview alloc]init];
     _lodingIMG = [loading initloadingImg];
+    
+    [self readCoreData];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -30,12 +31,16 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
--(void)viewDidAppear:(BOOL)animated{
+-(void)readCoreData{
+    _articleArray = [[NSMutableArray alloc]init];
     CollectionCoreDataController *collection= [[CollectionCoreDataController sharedInstance]init];
-    
     [collection readAllModel:nil success:^(NSArray *finishArray) {
-        _recepts = finishArray;
+        
         [self.tableView reloadData];
+        for (Collection *clt in finishArray){
+            Article *artile = [[Article alloc]initWithColletion:clt];
+            [_articleArray addObject:artile];
+        }
     } fail:^(NSError *error) {
         NSLog(@"%@",error);
     }];
@@ -55,7 +60,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return _recepts.count;
+    return _articleArray.count;
 }
 
 
@@ -66,15 +71,14 @@
         cell = (NewsListCell *)[tableView dequeueReusableCellWithIdentifier:@"newsListCell"];
     }
     
-    if ( [_recepts count] > 0) {
-        NSArray *data = [_recepts objectAtIndex:indexPath.row];
-        NSLog(@"%@",data);
-        NSString *imagUrl = [data valueForKey:@"thumb"];
+    if ( [_articleArray count] > 0) {
+        Article *article = [_articleArray objectAtIndex:indexPath.row];
+        NSString *imagUrl = article.Thumb;
         [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:imagUrl] placeholderImage:_lodingIMG];
         
-        cell.title.text = [data valueForKey:@"title"];
-        cell.source.text = [data valueForKey:@"source"];
-        cell.date.text = [data valueForKey:@"articleDate"];
+        cell.title.text = article.Title;
+        cell.source.text = article.Source;
+        cell.date.text = article.Date;
     }
     // Configure the cell...
     
@@ -82,25 +86,53 @@
 }
 
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        Article *article = [_articleArray objectAtIndex:indexPath.row];
+        [_articleArray removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        
+        //删除数据库中的存储
+        if (article) {
+            NSFetchRequest* request=[[NSFetchRequest alloc] init];
+            CollectionCoreDataController *coreController = [[CollectionCoreDataController sharedInstance]init];
+            NSEntityDescription* collection=[NSEntityDescription entityForName:coreController.coreDataEntityName inManagedObjectContext:coreController.coreDataApi.context];
+            [request setEntity:collection];
+            NSPredicate* predicate=[NSPredicate predicateWithFormat:@"articleId == %d",article.Id];
+            [request setPredicate:predicate];
+            NSError* error=nil;
+            NSMutableArray* mutableFetchResult=[[coreController.coreDataApi.context executeFetchRequest:request error:&error] mutableCopy];
+            if (mutableFetchResult==nil) {
+                NSLog(@"Error:%@",error);
+            }
+            for (Collection* ct in mutableFetchResult) {
+                [coreController.coreDataApi.context deleteObject:ct];
+            }
+            
+            if ([coreController.coreDataApi.context save:&error]) {
+                NSLog(@"Error:%@,%@",error,[error userInfo]);
+            }
+
+        }
+        
+        
+    }
+    //else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    //}
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -123,16 +155,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    if ( [_recepts count] > 0) {
-        Collection *data = [_recepts objectAtIndex:indexPath.row];//此处的data为clollection对象
-        NSLog(@"%@",_recepts);
+    if ( [_articleArray count] > 0) {
+        Article *article = [_articleArray objectAtIndex:indexPath.row];//此处的data为clollection对象
         ContentViewController *contentView = [[ContentViewController alloc]initWithArticle];
-        contentView.article.Id      = [[data valueForKey:@"articleId"] intValue];
-        contentView.article.Title   = [data valueForKey:@"title"];
-        contentView.article.Thumb   = [data valueForKey:@"thumb"];//拼接缩略图具体的url
-        contentView.article.Source  = [data valueForKey:@"source"];
-        contentView.article.Date    = [data valueForKey:@"articleDate"];
-        contentView.article.Hits    = [[data valueForKey:@"hits"]intValue];
+        contentView.article = article;
         
         self.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:contentView animated:YES];

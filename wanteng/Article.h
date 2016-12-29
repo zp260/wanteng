@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Collection+CoreDataClass.h"
 
 @interface Article : NSObject
 
@@ -17,4 +18,5 @@
 @property (nonatomic,strong) NSString *Date;
 @property (nonatomic)        int       Hits;
 
+-(instancetype)initWithColletion:(Collection*)collection;
 @end

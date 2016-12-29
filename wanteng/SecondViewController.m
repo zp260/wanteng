@@ -61,7 +61,7 @@ NSInteger const cellWidth = 110;
     _rootScroolView.frame = CGRectMake(0, 0, kDeviceWidth, kDeviceHeight);
 //    _rootScroolView.contentSize = CGSizeMake(kDeviceWidth, kDeviceHeight*3);
     _topImage.frame = CGRectMake(0, 0, _rootScroolView.width, 150);
-//    _collectView.frame = CGRectMake(15, _topImage.bottom+10, _rootScroolView.width-30, kDeviceHeight*3-(_topImage.bottom+10));
+//    _collectView.frame = CGRectMake(10, _topImage.bottom+10, _rootScroolView.width-20, kDeviceHeight*3-(_topImage.bottom+10));
 }
 
 /**
