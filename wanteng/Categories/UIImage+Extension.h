@@ -11,5 +11,5 @@
 @interface UIImage (Extension)
 
 + (UIImage *)scaleAndRotateImage:(UIImage *)image maxSize:(CGFloat)maxSize;
-
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 @end

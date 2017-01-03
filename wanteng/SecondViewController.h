@@ -24,7 +24,7 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *rootScroolView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectView;
-@property (weak, nonatomic) IBOutlet UIImageView *topImage;
+
 
 
 

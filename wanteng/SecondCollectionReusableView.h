@@ -11,5 +11,6 @@
 @interface SecondCollectionReusableView : UICollectionReusableView
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImg;
+@property (weak, nonatomic) IBOutlet UIImageView *topImage;
 
 @end

@@ -29,7 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cat_7" translatesAutoresizingMaskIntoConstraints="NO" id="uP9-7X-jV4">
-                        <rect key="frame" x="15" y="10" width="50" height="50"/>
+                        <rect key="frame" x="15" y="0.0" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="OKa-jU-8RD"/>
                             <constraint firstAttribute="height" constant="50" id="zSY-js-aaL"/>
@@ -38,7 +38,7 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="uP9-7X-jV4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="1Yl-J3-cgL"/>
+                <constraint firstItem="uP9-7X-jV4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1Yl-J3-cgL"/>
                 <constraint firstItem="lKc-w0-7mb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5wv-zx-IWL"/>
                 <constraint firstAttribute="trailing" secondItem="lKc-w0-7mb" secondAttribute="trailing" id="MZ1-wf-bVo"/>
                 <constraint firstItem="uP9-7X-jV4" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Rx1-Wl-Ull"/>

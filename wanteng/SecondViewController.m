@@ -27,6 +27,7 @@ NSInteger const cellWidth = 110;
     sectionTitleArray = [[NSArray alloc]initWithObjects:@"工作部门",@"直属机构",@"街道办事处", nil];
     
     [_collectView registerNib:[UINib nibWithNibName:@"SecondCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"coustmCell"];
+     //[_collectView registerClass:[SecondCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
     
     UICollectionViewFlowLayout *collectionViewLayout = (UICollectionViewFlowLayout*)_collectView.collectionViewLayout;
     collectionViewLayout.sectionInset = UIEdgeInsetsMake(20, 0, 0, 0);
@@ -58,10 +59,7 @@ NSInteger const cellWidth = 110;
     
 }
 -(void)initFrame{
-    _rootScroolView.frame = CGRectMake(0, 0, kDeviceWidth, kDeviceHeight);
-//    _rootScroolView.contentSize = CGSizeMake(kDeviceWidth, kDeviceHeight*3);
-    _topImage.frame = CGRectMake(0, 0, _rootScroolView.width, 150);
-//    _collectView.frame = CGRectMake(10, _topImage.bottom+10, _rootScroolView.width-20, kDeviceHeight*3-(_topImage.bottom+10));
+
 }
 
 /**
@@ -80,8 +78,8 @@ NSInteger const cellWidth = 110;
         count = cellCounts/per_count+1;
     }
     
-    _collectView.frame = CGRectMake(0, _topImage.bottom+10, _rootScroolView.width, count*(cellHight+20));
-    _rootScroolView.contentSize =CGSizeMake(kDeviceWidth, _collectView.height + _topImage.height) ;
+    _collectView.frame = CGRectMake(0, 0, kDeviceWidth, 5000);
+    NSLog(@"%@",NSStringFromCGRect(_collectView.frame));
     
 }
 
@@ -141,10 +139,29 @@ NSInteger const cellWidth = 110;
 
 }
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    CGSize size={kDeviceWidth,20};
+    CGSize size={kDeviceWidth,30};
+    if(section==0){
+      CGSize size={kDeviceWidth,170};
+        return size;
+    }
     return size;
 }
 
+-(UICollectionReusableView*)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    UICollectionReusableView *reusableView = nil;
+    if(kind==UICollectionElementKindSectionHeader){
+        SecondCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        headerView.title.text = [sectionTitleArray objectAtIndex:indexPath.section];
+        headerView.backgroundImg.backgroundColor  = [UIColor grayColor];
+        reusableView = headerView;
+        
+    }
+    if (kind == UICollectionElementKindSectionFooter){
+        
+        
+    }
+    return reusableView;
+}
 
 
 
