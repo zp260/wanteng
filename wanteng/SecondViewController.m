@@ -30,15 +30,11 @@ NSInteger const cellWidth = 110;
      //[_collectView registerClass:[SecondCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
     
     UICollectionViewFlowLayout *collectionViewLayout = (UICollectionViewFlowLayout*)_collectView.collectionViewLayout;
-    collectionViewLayout.sectionInset = UIEdgeInsetsMake(20, 0, 0, 0);
+    collectionViewLayout.sectionInset = UIEdgeInsetsMake(10, 0, 0, 0);
      cellCounts = 0;
     [self jsonGet];
-}
--(void)viewDidLayoutSubviews{
-    [self initFrame];
     
 }
-
 
 -(void)jsonGet{
     for (int i=0; i<classArray.count; i++) {
@@ -51,15 +47,13 @@ NSInteger const cellWidth = 110;
                 //加载完所有的section数据后 再刷新
                 if (SectionDic.count==classArray.count) {
                     [_collectView reloadData];
-                    [self freshCollectView];
+                    NSLog(@"%@",NSStringFromCGRect(_collectView.frame));
+                    //[self freshCollectView];
                 }
             }
         }];
     }
     
-}
--(void)initFrame{
-
 }
 
 /**
@@ -77,8 +71,8 @@ NSInteger const cellWidth = 110;
     {
         count = cellCounts/per_count+1;
     }
-    
-    _collectView.frame = CGRectMake(0, 0, kDeviceWidth, 5000);
+    float c_height = 170 + 30*2 + cellHight * count;  //  顶部图片头部，+2个section标题 + 所有cell的行数
+    //_collectView.frame = CGRectMake(0, 0, kDeviceWidth, c_height);
     NSLog(@"%@",NSStringFromCGRect(_collectView.frame));
     
 }
@@ -153,7 +147,13 @@ NSInteger const cellWidth = 110;
         SecondCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
         headerView.title.text = [sectionTitleArray objectAtIndex:indexPath.section];
         headerView.backgroundImg.backgroundColor  = [UIColor grayColor];
-        reusableView = headerView;
+        if (indexPath.section == 0 ) {
+            headerView.topImage.image = [UIImage imageNamed:@"scrool_1"];
+        }else{
+            headerView.topImage.image = nil;
+
+        }
+                reusableView = headerView;
         
     }
     if (kind == UICollectionElementKindSectionFooter){
